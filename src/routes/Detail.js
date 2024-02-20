@@ -33,7 +33,6 @@ let Box = styled.div
 `
 
 function Detail(props) {
-
   //URL 파라미터에 입력한 내용 가져오려면 useParams()
   let {id} = useParams();
   let { spare } = useContext(Context1);
@@ -65,7 +64,6 @@ function Detail(props) {
    * (state)에 넣은 값 변경시 늦게처리해줌
    */
   // let lately = useDefferredValue(text)
-
 
   /** 
    * useEffect : html 렌더링 후 동작 (LifeCycle_ mount, update 실행과 같은 타이밍에 동작)
@@ -101,7 +99,7 @@ function Detail(props) {
 
         <div className="row">
           <div className="col-md-6">
-          <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
+            <img src={`https://codingapple1.github.io/shop/shoes${id}.jpg`} width="100%" />
           </div>
           <div className="col-md-6">
             <h4 className="pt-5">{matchItem.title} </h4>

@@ -48,7 +48,8 @@ function App() {
           <Navbar.Brand href="#home">ShoeShop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={()=> navigate('/')}>Home</Nav.Link>
-            <Nav.Link onClick={()=>{ navigate('/detail') }}>Detail</Nav.Link>
+            <Nav.Link onClick={()=> navigate('/about')}>About</Nav.Link>
+            <Nav.Link onClick={()=>{ navigate('/detail/1') }}>Detail</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -62,7 +63,7 @@ function App() {
             <div className="row">
               { shoes.map((shoe, i) => {
                   return ( 
-                    <Card shoe={shoe} key={shoe} i={i+1} ></Card> 
+                    <Card shoe={shoe} key={i} i={i+1} ></Card> 
                   )
                 })
               }
@@ -115,15 +116,16 @@ function App() {
 
 /** Card Component */
 function Card(props) {
+  let navigate = useNavigate();
   return (
-    <div className="col-md-4">
+    <div className="col-md-4" onClick={()=>{ navigate(`/detail/${props.i}`) }}>
       <img 
-        src={'https://codingapple1.github.io/shop/shoes' + (props.i) + '.jpg'} 
+        src={`https://codingapple1.github.io/shop/shoes${props.i}.jpg`} 
         width="80%" 
       />
       <h4>{props.shoe.title}</h4>
       <p>{props.shoe.content}</p>
-      <p>$ {props.shoe.price} </p>
+      <p>${props.shoe.price} </p>
     </div>
   ) 
 }
