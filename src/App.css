@@ -11,8 +11,8 @@
   display: inline-flex;
   .main-bg {
     display: flex;
-    height : 700px;
     width: 50%;
+    height : 100vh;
     background-image : url('./main_half.png');
     background-size : cover;
     background-position : left;
@@ -20,6 +20,8 @@
   .item-container {
     display: flex;
     width: 50%;
+    height : 100vh;
+    overflow-y: scroll;
   }
 }
 
