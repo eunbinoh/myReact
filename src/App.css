@@ -6,11 +6,21 @@
   transition: opacity 0.5s;
 }
 
-.main-bg {
-  height : 300px;
-  background-image : url('./bg.png');
-  background-size : cover;
-  background-position : center;
+
+.main-container{
+  display: inline-flex;
+  .main-bg {
+    display: flex;
+    height : 700px;
+    width: 50%;
+    background-image : url('./main_half.png');
+    background-size : cover;
+    background-position : left;
+  }
+  .item-container {
+    display: flex;
+    width: 50%;
+  }
 }
 
 .App {

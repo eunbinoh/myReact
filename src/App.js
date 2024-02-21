@@ -45,47 +45,47 @@ function App() {
 
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">ShoeShop</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link onClick={()=> navigate('/')}>Home</Nav.Link>
-            <Nav.Link onClick={()=> navigate('/about')}>About</Nav.Link>
-            <Nav.Link onClick={()=>{ navigate('/detail/1') }}>Detail</Nav.Link>
+          <Navbar.Brand href="/">WWE</Navbar.Brand>
+          <Nav className="">
+            <Nav.Link onClick={()=> navigate('/')}>WATER</Nav.Link>
+            <Nav.Link onClick={()=> navigate('/about')}>EXCHANGE</Nav.Link>
+            <Nav.Link onClick={()=>{ navigate('/detail/1') }}>MINE</Nav.Link>
+            <Nav.Link onClick={()=>{ navigate('/detail/1') }}>ABOUT</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 
       <Routes>
         <Route path="/" element={
-          <>
-          <div>메인</div>
-          <div className="main-bg"></div>
-          <div className="container">
-            <div className="row">
-              { shoes.map((shoe, i) => {
-                  return ( 
-                    <Card shoe={shoe} key={i} i={i+1} ></Card> 
-                  )
-                })
-              }
+          <div className="main-container">
+            <div className="main-bg"></div>
+            <div className="item-container">
+              <div className="row">
+                { shoes.map((shoe, i) => {
+                    return ( 
+                      <Card shoe={shoe} key={i} i={i+1} ></Card> 
+                    )
+                  })
+                }
+              </div>
             </div>
+            <button onClick={()=>{ 
+              let url = shoes.length < 7 ? 'https://codingapple1.github.io/shop/data2.json' : 'https://codingapple1.github.io/shop/data3.json'
+
+              axios.get(url)
+              .then((res) => {
+                  let clipShoes = [...shoes];
+
+                  res.data.forEach(data => {
+                    clipShoes.push(data);
+                    setShoes(clipShoes);
+                  });
+              })
+              .catch(()=>{
+                  console.log('axios fail')
+              })
+              }}>더보기</button>
           </div>
-          <button onClick={()=>{ 
-            let url = shoes.length < 7 ? 'https://codingapple1.github.io/shop/data2.json' : 'https://codingapple1.github.io/shop/data3.json'
-
-            axios.get(url)
-             .then((res) => {
-                let clipShoes = [...shoes];
-
-                res.data.forEach(data => {
-                  clipShoes.push(data);
-                  setShoes(clipShoes);
-                });
-             })
-             .catch(()=>{
-                console.log('axios fail')
-             })
-            }}>더보기</button>
-          </>
           } />
         <Route 
           path="/detail/:id" 
