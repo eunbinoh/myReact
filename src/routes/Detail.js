@@ -17,15 +17,6 @@ import Cart from './Cart.js';
  *   3. 페이지 로딩시간 단축 ( 페이지마다 module.css 로딩할 필요 x )    
  *   4. props에서 속성값으로 가져와서 재활용 가능
  */
-let CustomBtn = styled.button
-`
-    background : ${ props => props.bg };
-    color : white;
-    margin : 5px;
-    padding : 7px;
-    border : 1px solid orange;
-    border-radius : 8px;
-`
 let Box = styled.div
 `
     background : gray;
@@ -44,8 +35,6 @@ function Detail(props) {
    */
   let matchItem = props.shoes.find( x => x.id === id -1 )
   let buyCount = 0; //구매수량
-
-  let [alertOn, setAlertOn] = useState(true)
   let [tab, setTab] = useState(0)
 
   /** 
@@ -73,30 +62,9 @@ function Detail(props) {
    * useEffect(()=> {} , []) : 더 정확한 useEffect 발생조건 부여
    *                  ex. [count] : count값 변경시 실행(용도 : A 감시에 따른 B update )
    * */
-  useEffect(()=> {
-      let timeOut = setTimeout(()=> {
-          setAlertOn(false)
-      },3000)
-
-      return () => {
-          /** 
-           * clean up function : useEffect 동작 직전에 실행됨 (unmount 시점)
-           * ex ) 데이터 초기화, 기존 이벤트 삭제 (clear 후 동작하도록) 
-           **/
-          clearTimeout(timeOut); // 타이머 제거
-      }
-  })
 
   return (
-    <div className="container">
-        {
-          !alertOn ?
-            null :
-            <div className="alert alert-warning start end">
-              *깜짝할인* 3초 이내 구매시 10% 할인!
-            </div>
-        }
-
+    <div className="detail-container">
         <div className="row">
           <div className="col-md-6">
             <img src={`https://codingapple1.github.io/shop/shoes${id}.jpg`} width="100%" />
