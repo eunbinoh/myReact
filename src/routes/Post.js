@@ -12,38 +12,68 @@ function Post() {
       <div className="posts">
         <div className="posts-contents">
           <div className="posts-contents-header">
-            <div> @Author </div>
-            <span className="like-button"> 
-              <img src="./assets/icon/like.png" alt=""/> 
-            </span>
+            <div> * master1 </div>
+            <div className="like-button">
+                <span>20</span>
+                <button></button>
+            </div>
           </div> 
           <div className="posts-contents-box">
-            <div>
-              내용
-            </div> 
-          
             <div className="posts-img">
               <img src="" width="100%" />
-            </div>
-
-            <div className="posts-contents-items">
-              <button> Item1
-                <Routes >
-                  <Route path="/items" element={ <Items /> } />
-                </Routes>
-              </button> 
-              <button> Item2
-                <Routes >
-                  <Route path="/items" element={ <Items /> } />
-                </Routes>
-              </button> 
-              <button> Item3
+              <button> #Item
                 <Routes >
                   <Route path="/items" element={ <Items /> } />
                 </Routes>
               </button> 
             </div>
+            <div className="posts-context"> 내용 </div> 
+          </div>
+        </div>
+      </div>
 
+      <div className="posts">
+        <div className="posts-contents">
+          <div className="posts-contents-header">
+            <div> * master2 </div>
+            <div className="like-button">
+                <span>20</span>
+                <button></button>
+            </div>
+          </div> 
+          <div className="posts-contents-box">
+            <div className="posts-img">
+              <img src="" width="100%" />
+              <button> #Item
+                <Routes >
+                  <Route path="/items" element={ <Items /> } />
+                </Routes>
+              </button> 
+            </div>
+            <div className="posts-context"> 내용 </div> 
+          </div>
+        </div>
+      </div>
+      
+      <div className="posts">
+        <div className="posts-contents">
+          <div className="posts-contents-header">
+            <div> * master3 </div>
+            <div className="like-button">
+                <span>20</span>
+                <button></button>
+            </div>
+          </div> 
+          <div className="posts-contents-box">
+            <div className="posts-img">
+              <img src="" width="100%" />
+              <button> #Item
+                <Routes >
+                  <Route path="/items" element={ <Items /> } />
+                </Routes>
+              </button> 
+            </div>
+            <div className="posts-context"> 내용 </div> 
           </div>
         </div>
       </div>

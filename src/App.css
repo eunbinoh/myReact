@@ -68,42 +68,60 @@
         height: 30px;
         width: 400px;
         display: inline-block;
-      
-        .like-butto{
-          text-align: right !important;
-        }
-
+        text-align: left;
       }
-      .posts-contents-header:first-child {
-        text-align: left !important;
+      .posts-contents-header:first-child{
+        font-size: 13px;
+        padding: 5px 5px;
+      }
+      .like-button{
+        float:right;
+        display: flex;
+        span{
+          font-size: 10px;
+          margin: -16px 1px auto 0;
+        }
+        button{
+          margin-top: -17px;
+          background-image: url('./assets/icon/like.png');
+          background-size: contain;
+          width: 20px;
+          height:20px;
+          border: none;
+        }
       }
 
       .posts-contents-box{
-        border: 1px solid blue;
-        margin: 5px auto;
-        width: 400px;
-        height: fit-content;
-        
-        .posts-img{
-          margin: 20px auto 5px auto;
-          border: 1px solid red;
-          height: 200px;
+          border: 1px solid gray;
+          margin: 5px auto 20px auto;
           width: 400px;
-        }
-
-        div{
-          border: 1px solid yellow;
-          margin: 3px 3px;
-          min-height: 80px;
-        }
+          height: fit-content;
         
-        
-        .posts-contents-items{
-          button{
-            border: 1px solid green;
-            background-color: aliceblue;
+          .posts-img{
+            margin: 20px 4px 5px 4px;
+            border: 1px solid red;
+            height: 200px;
+            width: 391px;
           }
-        }
+          button{
+            display: flex;
+            float: right;
+            margin: 173px 7px 0 0;
+            font-size: 13px;
+            border: 1px solid rgb(184, 200, 213);
+            border-radius: 10px;
+            background-color: aliceblue;
+            font-size: 11px;
+          }
+
+          .posts-context{
+            border: 1px solid purple;
+            margin: 3px 3px;
+            min-height: 80px;
+            height: 130px;
+            overflow-y: hidden;
+            font-size: 12px;
+          }
         
       }
 
