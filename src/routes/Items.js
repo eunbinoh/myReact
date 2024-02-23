@@ -1,4 +1,4 @@
-import '../App.css';
+import '../assets/style/App.css';
 import { Routes, Route, useNavigate, useParams} from 'react-router-dom'
 import { createContext,useState,useEffect } from 'react';
 import items from '../data/items.js'
@@ -24,7 +24,25 @@ function Items() {
 
   return (
     <div className="item-container">
-      <div className="main-bg"></div>
+      <div className="filter-box">
+        <label>카테고리 </label>
+        <select name="aa" id="" className="selectbox" >
+          <option>의류/패션잡화</option>
+          <option>디지털/기기</option>
+          <option>화장품/미용</option>
+          <option>가구/인테리어</option>
+          <option>식물/화분</option>
+          <option>출산/육아용품</option>
+          <option>스포츠/레저</option>
+          <option>생활/취미</option>
+          <option>티켓/쿠폰</option>
+        </select>
+        <input placeholder=" 아이템명 / 소유자명으로 검색 가능 합니다"></input>
+        <div className="find-icon"><button></button></div>
+        <button>신규순차▽</button>
+        <button>인기순차▽</button>
+        <button>인기순차▽</button>
+      </div>
       <div className="item-list">
         <div className="row">
           { shoes.map((shoe, i) => {
@@ -46,7 +64,7 @@ function Card(props) {
   let navigate = useNavigate();
   return (
       <>
-        <div className="col-md-4" onClick={()=>{ navigate(`/detail/${props.i}`)}} >
+        <div className="item-card col-md-4" onClick={()=>{ navigate(`/detail/${props.i}`)}} >
           <img 
             src={`https://codingapple1.github.io/shop/shoes${props.i}.jpg`} 
             width="80%" 

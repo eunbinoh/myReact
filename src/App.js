@@ -1,4 +1,4 @@
-import './App.css';
+import './assets/style/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav} from 'react-bootstrap'
 import { Routes, Route, useNavigate} from 'react-router-dom'

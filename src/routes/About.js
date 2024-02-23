@@ -1,35 +1,33 @@
-import '../App.css';
-import styled from "styled-components";
+import '../assets/style/App.css';
 
-let CustomBtn = styled.button
-`
-    background : ${ props => props.bg };
-    color : white;
-    margin : 5px;
-    padding : 7px;
-    border : 1px solid orange;
-    border-radius : 8px;
-`
-let Box = styled.div
-`
-    background : gray;
-    padding : 10px;
-`
 
 function About() {
   
-
   return (
     <div className="about-container">
-        <div className="row">
+      <div className="introduce-box">
           <div>_</div>
-          <div>
-            introduce Master
-          </div>
-          <CustomBtn>
-            Send Email 
-          </CustomBtn>
-        </div>
+          <div> introduce Master</div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+          <div> Water Water Exchange is_ </div>
+
+          <button> 문의하기 </button>
+      </div> 
     </div> 
   )
 }

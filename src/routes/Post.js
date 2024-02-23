@@ -1,4 +1,4 @@
-import '../App.css';
+import '../assets/style/App.css';
 import { Route, Routes, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useState, useEffect, useContext, useTransition } from "react";
