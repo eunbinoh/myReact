@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav} from 'react-bootstrap'
 import { Routes, Route, useNavigate} from 'react-router-dom'
 import { createContext, useState } from 'react';
-import data from './data.js'
+import items from './data/items.js'
 import Items from './routes/Items.js';
 import Detail from './routes/Detail.js';
 import Post from './routes/Post.js';
@@ -14,7 +14,7 @@ export let Context1 = createContext()
 
 function App() {
   let navigate = useNavigate();
-  let [shoes, setShoes] = useState(data);
+  let [shoes, setShoes] = useState(items);
   let [spare] = useState([10,11,12]);
 
   return (

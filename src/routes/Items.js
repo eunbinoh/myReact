@@ -1,13 +1,13 @@
 import '../App.css';
 import { Routes, Route, useNavigate, useParams} from 'react-router-dom'
 import { createContext,useState,useEffect } from 'react';
-import data from './../data.js'
+import items from '../data/items.js'
 import axios from 'axios';
 
 export let Context1 = createContext()
 
 function Items() {
-  let [shoes, setShoes] = useState(data);
+  let [shoes, setShoes] = useState(items);
   axios.get('https://codingapple1.github.io/shop/data2.json' )
   .then((res) => {
       let clipShoes = [...shoes];
