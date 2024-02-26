@@ -16,28 +16,29 @@
 }
 
 .item-container{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   display: block;
 
   .filter-box {
-    margin-top: 55px;
+    margin-top: 60px;
     margin-bottom: 20px;
     display: flex;
-    /* flex:1; */
     width: 100%;
     height: 60px;
     background-color: rgb(242, 238, 238);
-    align-items: center;
+    align-items: end;
+    padding-bottom: 10px;
     
     label {
-      font-size: 13px;
+      font-size: 15px;
       height: 30px;
-      padding: 5px 5px ;
+      padding: 2px 5px ;
       margin-left: 10px;
-      background-color: whitesmoke;
+      /* background-color: whitesmoke; */
       width: fit-content;
     }
     select{
-      background-color: whitesmoke;
+      background-color: rgb(242, 238, 238);
       font-size: 13px;
       height: 30px;
       width: 160px;
@@ -45,7 +46,7 @@
       border: none;
     }
     input{
-      background-color: whitesmoke;
+      background-color: rgba(242, 238, 238, 0.676);
       font-size: 13px;
       height: 30px;
       margin-left: 5px;
@@ -53,8 +54,8 @@
       border: none;
     }
     button{
-      background-color: whitesmoke;
       font-size: 13px;
+      background-color: whitesmoke;
       height: 30px;
       padding: auto 5px ;
       margin-left: 10px;
@@ -62,8 +63,7 @@
       width: fit-content;
     }
     .find-icon{
-      margin-left: 5px;
-      margin-top: 2px;
+      margin: 2px 20PX 0PX 5PX;
       button{
         background-image: url('../icon/find.png');
         background-size: contain;
@@ -90,8 +90,9 @@
 }
 
 .mine-container{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     display: inline-flex;
-    margin: 50px 5px 0 10px;
+    margin: 60px 5px 0 0px;
     width: 100%;
 
     .container-left {
@@ -110,7 +111,8 @@
         display: flex;
         height: 60px;
         background-color: rgb(242, 238, 238);
-        align-items: center;
+        align-items: end;
+        padding-bottom: 10px;
         
         .title{
           font-size: 20px;
@@ -137,7 +139,7 @@
         }
         .find-icon{
           margin-left: 5px;
-          margin-top: 2px;
+          margin-top: 10px;
           button{
             background-image: url('../icon/find.png');
             background-size: contain;
@@ -162,6 +164,7 @@
 }
 
 .detail-container {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin: 50px 5px 0 10px;
 }
 
@@ -169,6 +172,7 @@
   width: 50%;
   height: 100%;
   text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   /* border: 2px solid blueviolet; */
   margin: 50px auto 0 auto;
   display: block;
@@ -254,7 +258,7 @@
 
 
 .about-container {
-
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   text-align: center;
   margin: 0px 10% 0 10%;
   background-color: rgb(236, 238, 240);
@@ -285,12 +289,16 @@
 }
 
 .navbar-container {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 25px;
   position: fixed !important;
   width: 100%;
   top: 0;
   right:0;
 
   .nav-logo{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
     margin-left: -80px !important;
   }
 }

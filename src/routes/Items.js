@@ -25,7 +25,7 @@ function Items() {
   return (
     <div className="item-container">
       <div className="filter-box">
-        <label>카테고리 </label>
+        <label>CATEGORY </label>
         <select name="aa" id="" className="selectbox" >
           <option>의류/패션잡화</option>
           <option>디지털/기기</option>
@@ -39,9 +39,9 @@ function Items() {
         </select>
         <input placeholder=" 아이템명 / 소유자명으로 검색 가능 합니다"></input>
         <div className="find-icon"><button></button></div>
-        <button>신규순차▽</button>
-        <button>인기순차▽</button>
-        <button>인기순차▽</button>
+        <button>NEW ▽</button>
+        <button>NAME ▽</button>
+        <button>POPULAR ▽</button>
       </div>
       <div className="item-list">
         <div className="row">

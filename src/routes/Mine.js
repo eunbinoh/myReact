@@ -30,10 +30,10 @@ function Mine() {
           <div className="title">MY PAGE</div>
           <input placeholder=" 아이템명 검색"></input>
           <div className="find-icon"><button></button></div>
-          <button>거래목록</button>
-          <button>찜목록</button>
           <button>ALL</button>
-          <button>비공개템</button>
+          <button>HIDDEN</button>
+          <button>LIKE</button>
+          <button>HISTORY</button>
         </div>
         <div className="item-box">
           <div className="row">
