@@ -39,16 +39,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
       height: 30px;
       padding: 2px 5px ;
       margin-left: 10px;
-      /* background-color: whitesmoke; */
       width: fit-content;
-    }
-    select{
-      background-color: $bg-gray;
-      font-size: 13px;
-      height: 30px;
-      width: 160px;
-      margin-left: 5px;
-      border: none;
     }
     input{
       background-color: rgba(242, 238, 238, 0.676);
@@ -57,6 +48,9 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
       margin-left: 5px;
       width: 60%;
       border: none;
+      border-radius: 12px;
+      background-color: whitesmoke;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     }
     button{
       font-size: 13px;
