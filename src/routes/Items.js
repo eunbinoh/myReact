@@ -45,8 +45,8 @@ function Card(props) {
         <div className="item-card col-md-4" onClick={()=>{ navigate(`/detail/${props.shoe.itemId}`)}} >
           <img src={props.shoe.itemImg} alter="" width="200px;" height="200px;" />
           <h4>{props.shoe.itemNm}</h4>
+          <h5>{props.shoe.owner} </h5>
           <p>{props.shoe.itemDesc}</p>
-          <p>{props.shoe.owner} </p>
         </div>
       </>
   ) 
