@@ -45,43 +45,52 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
     align-items: end;
     padding-bottom: 10px;
     
-    label {
+    span {
       font-size: 15px;
       height: 30px;
-      padding: 2px 5px ;
+      padding: 8px 5px ;
       margin-left: 10px;
       width: fit-content;
     }
+
     input{
-      background-color: rgba(242, 238, 238, 0.676);
+      font-family: 'GangwonEdu_OTFBoldA';
       font-size: 13px;
       height: 30px;
       margin-left: 5px;
       width: 60%;
       border: none;
       border-radius: 12px;
-      background-color: whitesmoke;
       box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+      background-color: rgba(242, 238, 238, 0.676);
+      padding-left: 10px;
+      padding-top: 8px;
     }
-    button{
-      font-size: 13px;
-      background-color: whitesmoke;
-      height: 30px;
-      padding: auto 5px ;
-      margin-left: 10px;
-      border-radius: 5px;
-      width: fit-content;
-    }
+
     .find-icon{
-      margin: 2px 20PX 0PX 5PX;
+      display:flex;
+      margin: 10px 5px 1px 5px !important;
       button{
         background-image: url('../icon/find.png');
         background-size: contain;
-        border-radius: 5px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+        border-color: rgba(242, 238, 238, 0.676);
+        border-radius: 8px;
         width: 28px;
         height:28px;
       }
     }
+    button{
+      font-size: 13px;
+      background-color: whitesmoke;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25) !important;
+      height: 30px;
+      padding: auto 5px ;
+      margin-right: 10px;
+      border-radius: 5px;
+      width: fit-content;
+    }
+
   }
 
   .item-list {
@@ -121,14 +130,14 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
 
     .container-left {
       display: flex;
-      width: 45%;
+      width: 40%;
       height : 130vh;
       background-color: $bg-black;
     }
 
     .container-right{
       display: flexbox;
-      width: 55%;
+      width: 60%;
 
       .filter-box {
         display: flex;
@@ -144,15 +153,21 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
         }
 
         input{
+          font-family: 'GangwonEdu_OTFBoldA';
           background-color: whitesmoke;
           font-size: 13px;
           height: 30px;
           margin-left: 5px;
-          width: 360px;
+          width: 50%;
           border: none;
+          border-radius: 12px;
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+          padding-left: 10px;
+          padding-top: 8px;
         }
         button{
           background-color: whitesmoke;
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
           font-size: 13px;
           height: 30px;
           padding: auto 5px ;
@@ -161,19 +176,21 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
           width: fit-content;
         }
         .find-icon{
-          margin-left: 5px;
-          margin-top: 10px;
+          display:flex;
+          margin: 10px 5px 1px 5px !important;
           button{
             background-image: url('../icon/find.png');
             background-size: contain;
-            border-radius: 5px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+            border-color: rgba(242, 238, 238, 0.676);
+            border-radius: 8px;
             width: 28px;
             height:28px;
-            /* border: none; */
           }
         }
       }  
       .item-box {
+        font-family: 'GangwonEdu_OTFBoldA';
         .row{
           height : 100vh;
           overflow-x: hidden;
@@ -187,8 +204,10 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
 }
 
 .detail-container {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'GangwonEdu_OTFBoldA';
   margin: 50px 5px 0 10px;
+
+
 }
 
 .post-container {
@@ -317,11 +336,11 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
   width: 100%;
   top: 0;
   right:0;
-
+  
   .nav-logo{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 30px;
-    margin-left: -100px !important;
+    margin-left: -110px !important;
   }
 }
 .component-container{
