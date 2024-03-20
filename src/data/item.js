@@ -775,7 +775,7 @@ let item = [
   //tickets
     {
       itemId : '20240312-04-A1',
-      itemNm   : '뮤지컬 AIDA 2024-05-01 R석입니다.',
+      itemNm   : '뮤지컬 AIDA 2024-05-01 R석',
       category : '09',
       owner  : 'user02',
       buyHoper : [],
@@ -790,7 +790,7 @@ let item = [
     },
     {
       itemId : '20240312-04-A2',
-      itemNm   : '뮤지컬 AIDA 2024-05-01 R석입니다.',
+      itemNm   : '뮤지컬 AIDA 2024-05-01 R석',
       category : '09',
       owner  : 'user02',
       buyHoper : [],
@@ -805,7 +805,7 @@ let item = [
     },
     {
       itemId : '20240312-04-A3',
-      itemNm   : '뮤지컬 AIDA 2024-05-01 R석입니다.',
+      itemNm   : '팀버튼 뮤지컬 티켓 S석',
       category : '09',
       owner  : 'user02',
       buyHoper : [],
@@ -820,7 +820,7 @@ let item = [
     },
     {
       itemId : '20240312-04-A4',
-      itemNm   : '뮤지컬 AIDA 2024-05-01 R석입니다.',
+      itemNm   : '월드 디제잉 페스티벌',
       category : '09',
       owner  : 'user02',
       buyHoper : [],
@@ -835,7 +835,7 @@ let item = [
     },
     {
       itemId : '20240312-04-A5',
-      itemNm   : '뮤지컬 AIDA 2024-05-01 R석입니다.',
+      itemNm   : '서재페 티켓(2024-05-01)',
       category : '09',
       owner  : 'user02',
       buyHoper : [],

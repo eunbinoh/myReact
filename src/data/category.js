@@ -1,5 +1,9 @@
 let type = [
     {
+      tpCode : '00',
+      tpName : '- 전체 -',
+    },
+    {
       tpCode : '01',
       tpName : '의류/패션잡화',
     },

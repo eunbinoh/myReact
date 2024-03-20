@@ -22,7 +22,7 @@ function App() {
 
       <Navbar bg="dark" variant="dark" className="navbar-container">
         <Container>
-          <Navbar.Brand href="/" className="nav-logo">WWE</Navbar.Brand>
+          <Navbar.Brand href="/" className="nav-logo">WaterWater ex</Navbar.Brand>
           <Nav className="">
             <Nav.Link onClick={()=> navigate('/items')}>ITEM</Nav.Link>
             <Nav.Link onClick={()=> navigate('/post')}>POST</Nav.Link>

@@ -3,11 +3,20 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import category from '../data/category.js'
 
+
 function SelectBox(props) {
   const SelectBox = styled.div`
+  @font-face {
+    font-family: "GangwonEdu_OTFBoldA";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+    font-family: GangwonEdu_OTFBoldA;
     position: relative;
     width: 200px;
-    padding: 3px;
+    height: 22x;
+    padding: 3px 0px 1px 3px;
     border-radius: 12px;
     background-color: #ffffff;
     align-self: center;
@@ -15,6 +24,7 @@ function SelectBox(props) {
     top: 9px;
     left: 5px;
     margin-right: 5px;
+    margin-top: 5px;
     cursor: pointer;
     &::before {
       content: "⌵";
@@ -53,20 +63,21 @@ function SelectBox(props) {
       background-color: #595959;
     }
   `;
-  const [value, setValue] = useState('01');
-  const [isShowOpt, setShowOpt] = useState(false);
+  const [value, setValue] = useState('- 전체 -')
+  const [isShowOpt, setShowOpt] = useState(false)
   let [cates, setCates ] = useState(category)
+  // setCates({tpCode:'01', tpName:'의류/패션잡화'})
 
   const handleOnChangeValue = (e) => {
-    console.log(e.target.value)
-    const { text } = e.target.value;
-    setValue(text);
+    const idx = e.target.value
+    const selectTp = cates[idx].tpName
+    setValue(selectTp);
   };
 
  
   return (
     <SelectBox onClick={() => setShowOpt((bool) => !bool)}>
-      <Label>{}</Label>
+      <Label>{value}</Label>
       <SelectOpts show={isShowOpt}>
         {       
           cates.map((data)=>{

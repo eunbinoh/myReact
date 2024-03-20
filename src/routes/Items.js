@@ -18,9 +18,9 @@ function Items() {
 
         <input placeholder=" 아이템명 / 소유자명으로 검색"></input>
         <div className="find-icon"><button></button></div>
-        <button>NEW ▽</button>
-        <button>NAME ▽</button>
-        <button>POPULAR ▽</button>
+        <button>NEW▽</button>
+        <button>NAME▽</button>
+        <button>POPULAR▽</button>
       </div>
       <div className="item-list">
         <div className="row">
