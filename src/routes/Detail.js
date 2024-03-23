@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 function Detail(props) {
   console.log(props)
   let [tab, setTab] = useState(0)
-
+console.log('props:',props)
   return (
     <div className="detail-container">
         <div className="row">
@@ -44,7 +44,7 @@ function Detail(props) {
 }
 
 function TabContent({shoes, tab}){
-  return [<div>{shoes[tab].title}</div>, <div>{shoes[tab].title}</div>, <div>{shoes[tab].title}</div>][tab]
+  return [<div>{shoes[tab].itemNm}</div>, <div>{shoes[tab].itemNm}</div>, <div>{shoes[tab].itemNm}</div>][tab]
 }
 
 export default Detail;

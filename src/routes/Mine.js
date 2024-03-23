@@ -1,13 +1,13 @@
 import '../assets/style/App.css';
 import { Routes, Route, useNavigate, useParams} from 'react-router-dom'
 import { createContext,useState,useEffect } from 'react';
-import items from '../data/items.js'
+import item from '../data/item.js'
 import axios from 'axios';
 
 export let Context1 = createContext()
 
 function Mine() {
-  let [shoes, setShoes] = useState(items);
+  let [shoes, setShoes] = useState(item);
   axios.get('https://codingapple1.github.io/shop/data2.json' )
   .then((res) => {
       let clipShoes = [...shoes];
@@ -52,18 +52,18 @@ function Mine() {
 
 /** Card Component */
 function Card(props) {
-  console.log(props)
   let navigate = useNavigate();
   return (
       <>
-        <div className="col-md-4" onClick={()=>{ navigate(`/detail/${props.i}`)}} >
-          <img 
-            src={`https://codingapple1.github.io/shop/shoes${props.i}.jpg`} 
-            width="80%" 
-          />
-          <h4>{props.shoe.title}</h4>
-          <p>{props.shoe.content}</p>
-          <p>${props.shoe.price} </p>
+        <div className="item-card col-md-4" onClick={()=>{ navigate(`/detail/${props.shoe.itemId}`)}} >
+          <div>
+            <img src={props.shoe.itemImg} alter="" width="200px;" height="200px;" />
+          </div>
+          <div>
+            <span className='card-title'>{props.shoe.itemNm}</span>
+            <span>🤍{props.shoe.liker.length} </span>
+            <span>❤ {props.shoe.buyHoper.length} </span>
+          </div>
         </div>
       </>
   ) 

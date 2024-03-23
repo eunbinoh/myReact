@@ -83,11 +83,17 @@ function Card(props) {
   let navigate = useNavigate();
   return (
       <>
-        <div className="item-card col-md-4" onClick={()=>{ navigate(`/detail/${props.shoe.itemId}`)}} >
+        <div className="item-card col-md-3" onClick={()=>{ navigate(`/detail/${props.shoe.itemId}`)}} >
           <img src={props.shoe.itemImg} alter="" width="200px;" height="200px;" />
           <h4>{props.shoe.itemNm}</h4>
-          <h5>{props.shoe.owner} </h5>
-          <p>{props.shoe.itemDesc}</p>
+          <div className='card-row2'>  
+            <span>{props.shoe.owner} </span>
+            <span>🤍{props.shoe.liker.length} </span>
+            <span>❤ {props.shoe.buyHoper.length} </span>
+          </div>
+          <div className='card-row3'>
+            <span>{props.shoe.itemDesc}</span>
+          </div>
         </div>
       </>
   ) 

@@ -109,13 +109,21 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
         font-family: Hahmlet-Regular;
         margin: 10px 0px;
       }
-      h5{
+      .card-row2 {
+        display: inline;
         font-family: GangwonEdu_OTFBoldA;
         margin: 5px 0px;
       }
-      p {
-        font-family: GangwonEdu_OTFBoldA;
-        margin: 5px 0px 40px 0px;
+      .card-row3{
+        display: flex;
+        width: 180px;
+        height: 30px;
+        margin: 5px 0px 30px 70px;
+        overflow-y: auto;
+        span{
+          font-family: GangwonEdu_OTFBoldA;
+          text-align: left;
+        }
       }
       cursor: pointer;
     }
@@ -147,9 +155,11 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
         padding-bottom: 10px;
         
         .title{
+          min-width: min-content;
+          display: inline-flex;
           font-size: 20px;
           font-weight: 600;
-          margin: 0 10px;
+          margin: 0 10px 0 15px;
         }
 
         input{
@@ -158,7 +168,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
           font-size: 13px;
           height: 30px;
           margin-left: 5px;
-          width: 50%;
+          width: 45%;
           border: none;
           border-radius: 12px;
           box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
@@ -190,13 +200,27 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
         }
       }  
       .item-box {
-        font-family: 'GangwonEdu_OTFBoldA';
-        .row{
-          height : 100vh;
-          overflow-x: hidden;
-          overflow-y: auto;
-          padding: 10px 10px;
-          text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        display: flex;
+        width: 100%;
+        height : 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 10px 10px;
+        text-align: center;
+        
+        
+        .item-card{
+          .card-title{
+            font-family: GangwonEdu_OTFBoldA;
+            font-size: 18px;
+            margin: 10px 0px 0px 0px;
+          }
+          span{
+            font-family: GangwonEdu_OTFBoldA;
+            font-size: 14px;
+            margin: 2px 5px;
+          }
           cursor: pointer;
         }
       }
@@ -377,7 +401,8 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
   .nav-logo{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 30px;
-    margin-left: -100px !important;
+    display: flex;
+    margin-left: -3% !important;
   }
 }
 .component-container{
