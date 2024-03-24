@@ -64,7 +64,6 @@ function Cart(){
 } 
 
 let Child = memo( function() {
-  console.log('memo : props가 변할때만  재렌더링 되도록 ')
   return <div>ChildBtn</div>
 })
 

@@ -15,7 +15,7 @@ export let Context1 = createContext()
 function App() {
   let navigate = useNavigate();
   let [shoes, setShoes] = useState(item);
-  let [spare] = useState([10,11,12]);
+  // let [spare] = useState([10,11,12]);
 
   return (
     <div className="app">
@@ -50,8 +50,8 @@ function App() {
         <Route 
           path="/detail/:id" 
           element={ 
-            <Context1.Provider className="component-container" value={{ spare }}>
-              <Detail shoes={shoes}/> 
+            <Context1.Provider className="component-container" value={{ }}>
+              <Detail /> 
             </Context1.Provider>
           } 
         />

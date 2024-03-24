@@ -65,9 +65,9 @@ function Items() {
       </div>
       <div className="item-list">
         <div className="row">
-          { items.map((shoe, i) => {
+          { items.map((x, i) => {
               return ( 
-                <Card shoe={shoe} key={i} i={i+1} ></Card> 
+                <Card item = {x} key={i} i={i+1} ></Card> 
               )
             })
           }
@@ -83,16 +83,21 @@ function Card(props) {
   let navigate = useNavigate();
   return (
       <>
-        <div className="item-card col-md-3" onClick={()=>{ navigate(`/detail/${props.shoe.itemId}`)}} >
-          <img src={props.shoe.itemImg} alter="" width="200px;" height="200px;" />
-          <h4>{props.shoe.itemNm}</h4>
+        <div className="item-card col-md-3" 
+             onClick={()=>{ navigate(`/detail/${props.item.itemId}`, {state: { item : props.item }})}} >
+          <img src={props.item.itemImg} alter="" width="200px;" height="200px;" />
+          <h4>{props.item.itemNm}</h4>
           <div className='card-row2'>  
-            <span>{props.shoe.owner} </span>
-            <span>🤍{props.shoe.liker.length} </span>
-            <span>❤ {props.shoe.buyHoper.length} </span>
+            <span>{props.item.owner} </span>
+            <span>🤍{props.item.liker.length} </span>
+            <span>❤ {props.item.buyHoper.length} </span>
           </div>
           <div className='card-row3'>
-            <span>{props.shoe.itemDesc}</span>
+            <span> {
+                      props.item.itemDesc.length < 15 ? props.item.itemDesc
+                       : props.item.itemDesc.substring(0,15) + ' ..'
+                    }
+            </span>
           </div>
         </div>
       </>

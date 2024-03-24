@@ -116,10 +116,10 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
       }
       .card-row3{
         display: flex;
-        width: 180px;
+        width: 190px;
         height: 30px;
         margin: 5px 0px 30px 70px;
-        overflow-y: auto;
+        overflow: hidden;
         span{
           font-family: GangwonEdu_OTFBoldA;
           text-align: left;
@@ -229,9 +229,12 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.65);
 
 .detail-container {
   font-family: 'GangwonEdu_OTFBoldA';
-  margin: 50px 5px 0 10px;
+  margin: 50px 5px 0 0px;
+  overflow: hidden;
 
-
+  .detail-hope-tab{
+    margin: 15px 10px;
+  }
 }
 
 .post-container {
