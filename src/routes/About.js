@@ -14,13 +14,19 @@ function About() {
           <span > <p>Career</p> _ </span>
           <span > <p>Skills</p> _ </span>
           <div>
-            <img src="/assets/img/FE_SPEC1.png" width="120px;"  height="60px;" />
-            <img src="/assets/img/FE_SPEC2.png" width="100px;"  height="60px;" />
+            <img src="/assets/img/FE_SPEC1_1.png" width="40px;"  height="30px;" />
+            <img src="/assets/img/FE_SPEC1_2.png" width="40px;"  height="30px;" />
+            <img src="/assets/img/FE_SPEC1_3.png" width="40px;"  height="30px;" />
+            <img src="/assets/img/FE_SPEC2_1.png" width="40px;"  height="30px;" />
+            <img src="/assets/img/FE_SPEC2_2.png" width="40px;"  height="30px;" />
           </div>  
           <div>
-            <img src="/assets/img/FE_SPEC3.png" width="50px;"  height="50px;" />
-            <img src="/assets/img/FE_SPEC4.png" width="50px;"  height="50px;" />
-            <img src="/assets/img/FE_SPEC5.png" width="50px;"  height="50px;" />
+            <img src="/assets/img/FE_SPEC4.png" width="40px;"  height="35px;" />
+            <img src="/assets/img/FE_SPEC3.png" width="40px;"  height="35px;" />
+            <img src="/assets/img/FE_SPEC7.png" width="45px;"  height="35px;" />
+            <img src="/assets/img/FE_SPEC8.png" width="33px;"  height="35px;" />
+            <img src="/assets/img/FE_SPEC5.png" width="37px;"  height="32px;" />
+            <img src="/assets/img/FE_SPEC6.png" width="40px;"  height="35px;" />
           </div>
 
           <button> 문의하기 </button>

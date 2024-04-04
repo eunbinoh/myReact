@@ -68,7 +68,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
             margin-top: 10px;
             font-family: 'GangwonEdu_OTFBoldA';
             font-size: 20px;
-            color: rgba(var(--bs-emphasis-color-rgb), 0.55);
+            color:rgb(56, 56, 156);
             text-align: left;
             text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
           }
@@ -76,7 +76,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
             margin-top: 20px;
             font-family: 'GangwonEdu_OTFBoldA';
             font-size: 20px;
-            color: rgba(var(--bs-emphasis-color-rgb), 0.45);
+            color: rgba(56, 56, 156, 0.578);
             text-align: left;
             text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
           }
@@ -422,6 +422,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
         // align-items: start;
         text-align: left !important;
         margin-bottom: 10px;
+        margin-left: 10px;
       }
       
     }
