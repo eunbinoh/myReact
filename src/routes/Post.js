@@ -27,7 +27,12 @@ function Post() {
                 </Routes>
               </button> 
             </div>
-            <div className="posts-context"> 내용 </div> 
+            <div className="posts-context"> 
+              내용 <br/>
+
+              <img width="20px;" height="20px" src="../assets/icon/water.svg" /> 
+
+            </div> 
           </div>
         </div>
       </div>
