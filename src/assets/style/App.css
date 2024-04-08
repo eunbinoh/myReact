@@ -280,7 +280,7 @@
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   /* border: 2px solid blueviolet; */
-  margin: 50px auto 0 auto;
+  margin: 80px auto 0 auto;
   display: block;
 }
 .post-container .posts {
@@ -311,17 +311,13 @@
   float: right;
   display: flex;
 }
-.post-container .posts .posts-contents .like-button span {
-  font-size: 10px;
-  margin: -16px 1px auto 0;
+.post-container .posts .posts-contents .like-button img {
+  margin-top: -18px;
+  margin-right: 3px;
 }
-.post-container .posts .posts-contents .like-button button {
-  margin-top: -17px;
-  background-image: url("../icon/like.png");
-  background-size: contain;
-  width: 20px;
-  height: 20px;
-  border: none;
+.post-container .posts .posts-contents .like-button span {
+  font-size: 12px;
+  margin: -16px 1px auto 0;
 }
 .post-container .posts .posts-contents .posts-contents-box {
   border: 1px solid gray;
@@ -331,21 +327,33 @@
   height: fit-content;
 }
 .post-container .posts .posts-contents .posts-contents-box .posts-img {
-  margin: 20px 4px 5px 4px;
+  display: block;
   border: 1px solid red;
+  margin: 20px 4px 5px 4px;
   height: 200px;
   width: 391px;
 }
-.post-container .posts .posts-contents .posts-contents-box button {
+.post-container .posts .posts-contents .posts-contents-box .posts-img img {
   display: flex;
-  float: right;
-  margin: 173px 7px 0 0;
+  margin-left: 10px;
+}
+.post-container .posts .posts-contents .posts-contents-box .posts-img .no-Image {
+  margin-top: 50px !important;
+}
+.post-container .posts .posts-contents .posts-contents-box .posts-img button {
+  top: 25%;
+  left: 35%;
+  position: relative;
+  height: 20px;
+  margin-top: 20px;
+  align-items: center;
   border: 1px solid rgb(184, 200, 213);
   border-radius: 10px;
   background-color: aliceblue;
   font-size: 11px;
 }
 .post-container .posts .posts-contents .posts-contents-box .posts-context {
+  font-family: "GangwonEdu_OTFBoldA";
   border: 1px solid purple;
   margin: 3px 3px;
   min-height: 80px;
@@ -428,12 +436,18 @@
   background-color: whitesmoke;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   height: 30px;
-  width: 100px;
+  min-width: 100px;
+  width: -moz-max-content;
+  width: max-content;
   padding: auto 20px auto 20px;
   margin: 10px;
   border-radius: 16px;
   width: -moz-fit-content;
   width: fit-content;
+  text-align: center;
+}
+.about-container .introduce-box button img {
+  margin: 0 5px;
 }
 
 .App {
@@ -444,6 +458,7 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 25px;
   position: fixed !important;
+  z-index: 999;
   width: 100%;
   top: 0;
   right: 0;

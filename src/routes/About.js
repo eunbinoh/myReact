@@ -29,7 +29,10 @@ function About() {
             <img src="/assets/img/FE_SPEC6.png" width="40px;"  height="35px;" />
           </div>
 
-          <button> 문의하기 </button>
+          <button> 
+            _GitLab
+            <img width="20px;" height="20px" src="../assets/icon/git-lab.svg" /> 
+          </button>
         </div>
         <div className="right-area">
           <span className="title"> Projects History</span>
@@ -43,7 +46,10 @@ function About() {
           <span > _ </span>
           <span > _ </span>
 
-          <button> 문의하기 </button>
+          <button>
+              _Email 
+            <img width="20px;" height="20px" src="../assets/icon/mail.svg" /> 
+           </button>
         </div>
 
       </div> 

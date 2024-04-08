@@ -297,7 +297,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   /* border: 2px solid blueviolet; */
-  margin: 50px auto 0 auto;
+  margin: 80px auto 0 auto;
   display: block;
   
   .posts{
@@ -311,7 +311,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
       margin: 5px auto;
       display: block;
       width: 400px;
-      
+
       .posts-contents-header{
         border: 1px solid orange;
         height: 30px;
@@ -326,17 +326,13 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
       .like-button{
         float:right;
         display: flex;
-        span{
-          font-size: 10px;
-          margin: -16px 1px auto 0;
+        img{
+          margin-top: -18px;
+          margin-right: 3px;
         }
-        button{
-          margin-top: -17px;
-          background-image: url('../icon/like.png');
-          background-size: contain;
-          width: 20px;
-          height:20px;
-          border: none;
+        span{
+          font-size: 12px;
+          margin: -16px 1px auto 0;
         }
       }
 
@@ -347,22 +343,39 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
           height: fit-content;
         
           .posts-img{
-            margin: 20px 4px 5px 4px;
+            display: block;
             border: 1px solid red;
+            margin: 20px 4px 5px 4px;
             height: 200px;
             width: 391px;
-          }
-          button{
-            display: flex;
-            float: right;
-            margin: 173px 7px 0 0;
-            border: 1px solid rgb(184, 200, 213);
-            border-radius: 10px;
-            background-color: aliceblue;
-            font-size: 11px;
+            
+            img{
+              display: flex;
+              margin-left: 10px;
+            }
+            .no-Image{
+              margin-top: 50px !important;
+            }
+            
+            button{
+              // display: flex;
+              // position: static;
+              // z-index: 0;
+              top: 25%;
+              left: 35%;
+              position: relative;
+              height: 20px;
+              margin-top: 20px;
+              align-items: center;
+              border: 1px solid rgb(184, 200, 213);
+              border-radius: 10px;
+              background-color: aliceblue;
+              font-size: 11px;
+            }
           }
 
           .posts-context{
+            font-family: 'GangwonEdu_OTFBoldA';
             border: 1px solid purple;
             margin: 3px 3px;
             min-height: 80px;
@@ -461,11 +474,14 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
       background-color: whitesmoke;
       box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
       height: 30px;
-      width: 100px;
+      min-width: 100px;
+      width: max-content;
       padding: auto 20px auto 20px;
       margin: 10px;
       border-radius: 16px;
       width: fit-content;
+      text-align: center;
+      img { margin: 0 5px; }
     }
   }
 
@@ -479,6 +495,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 25px;
   position: fixed !important;
+  z-index: 999;
   width: 100%;
   top: 0;
   right:0;

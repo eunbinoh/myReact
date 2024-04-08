@@ -7,14 +7,14 @@ import axios from 'axios';
 export let Context1 = createContext()
 
 function Mine() {
-  let [shoes, setShoes] = useState(item);
+  let [items, setItems] = useState(item);
   axios.get('https://codingapple1.github.io/shop/data2.json' )
   .then((res) => {
-      let clipShoes = [...shoes];
+      let clipitems = [...items];
       res.data.forEach(data => {
-        if(clipShoes.length < 7){
-          clipShoes.push(data);
-          setShoes(clipShoes);
+        if(clipitems.length < 7){
+          clipitems.push(data);
+          setItems(clipitems);
         }
       });
   })
@@ -37,9 +37,9 @@ function Mine() {
         </div>
         <div className="item-box">
           <div className="row">
-            { shoes.map((shoe, i) => {
+            { items.map((item, i) => {
                 return ( 
-                  <Card shoe={shoe} key={i} i={i+1} ></Card> 
+                  <Card item={item} key={i} i={i+1} ></Card> 
                 )
               })
             }
@@ -55,14 +55,14 @@ function Card(props) {
   let navigate = useNavigate();
   return (
       <>
-        <div className="item-card col-md-4" onClick={()=>{ navigate(`/detail/${props.shoe.itemId}`)}} >
+        <div className="item-card col-md-4" onClick={()=>{ navigate(`/detail/${props.item.itemId}`)}} >
           <div>
-            <img src={props.shoe.itemImg} alter="" width="200px;" height="200px;" />
+            <img src={props.item.itemImg} alter="" width="200px;" height="200px;" />
           </div>
           <div>
-            <span className='card-title'>{props.shoe.itemNm}</span>
-            <span>🤍{props.shoe.liker.length} </span>
-            <span>❤ {props.shoe.buyHoper.length} </span>
+            <span className='card-title'>{props.item.itemNm}</span>
+            <span>🤍{props.item.liker.length} </span>
+            <span>❤ {props.item.buyHoper.length} </span>
           </div>
         </div>
       </>
