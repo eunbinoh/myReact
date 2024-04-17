@@ -12,7 +12,7 @@
 }
 
 $bg-gray: rgb(242, 238, 238);
-$bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
+$bg-black: rgb(236, 238, 240);;
 
 .start {
   opacity : 0
@@ -30,7 +30,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
   justify-content: center;
   align-items: center;
   .context{
-    border: 1px solid gray;
+    border: 1px solid $bg-black;
     border-radius: 5px;
     box-shadow: 0px 3px 10px rgba(128, 128, 128, 0.596);
     padding: 50px 80px 80px 120px;
@@ -117,22 +117,12 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
       border-radius: 12px;
       box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
       background-color: rgba(242, 238, 238, 0.676);
-      padding-left: 10px;
-      padding-top: 8px;
+      padding: 5px 10px 0px 10px;
     }
 
     .find-icon{
       display:flex;
-      margin: 10px 5px 1px 5px !important;
-      button{
-        background-image: url('../icon/find.png');
-        background-size: contain;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-        border-color: rgba(242, 238, 238, 0.676);
-        border-radius: 8px;
-        width: 28px;
-        height:28px;
-      }
+      margin:0px 5px 4px 5px !important;
     }
     button{
       font-size: 13px;
@@ -154,11 +144,10 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
     height : 100vh;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 10px 10px;
-    text-align: center;
-    
+    margin-left: 5%;
     
     .item-card{
+      text-align: left;
       h4{
         font-family: Hahmlet-Regular;
         margin: 10px 0px;
@@ -170,13 +159,12 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
       }
       .card-row3{
         display: flex;
-        width: 190px;
+        width: 220px;
         height: 30px;
-        margin: 5px 0px 30px 70px;
+        margin: 5px 0px 30px 0px;
         overflow: hidden;
         span{
           font-family: GangwonEdu_OTFBoldA;
-          text-align: left;
         }
       }
       cursor: pointer;
@@ -241,16 +229,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
         }
         .find-icon{
           display:flex;
-          margin: 10px 5px 1px 5px !important;
-          button{
-            background-image: url('../icon/find.png');
-            background-size: contain;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-            border-color: rgba(242, 238, 238, 0.676);
-            border-radius: 8px;
-            width: 28px;
-            height:28px;
-          }
+          margin:0px 5px 4px 5px !important;
         }
       }  
       .item-box {
@@ -303,7 +282,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
   .posts{
     padding-top: 20px;
     margin: 10px auto;
-    border: 1px solid black;
+    border: 1px solid  rgb(159, 159, 159);
     height: max-content;
     width: 500px;
 
@@ -313,7 +292,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
       width: 400px;
 
       .posts-contents-header{
-        border: 1px solid orange;
+        border: 1px solid  rgb(159, 159, 159);
         height: 30px;
         width: 400px;
         display: inline-block;
@@ -337,14 +316,14 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
       }
 
       .posts-contents-box{
-          border: 1px solid gray;
+          border: 1px solid  rgb(159, 159, 159);;
           margin: 5px auto 20px auto;
           width: 400px;
           height: fit-content;
         
           .posts-img{
             display: block;
-            border: 1px solid red;
+            border: 1px solid rgb(159, 159, 159);
             margin: 20px 4px 5px 4px;
             height: 200px;
             width: 391px;
@@ -376,7 +355,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
 
           .posts-context{
             font-family: 'GangwonEdu_OTFBoldA';
-            border: 1px solid purple;
+            border: 1px solid  rgb(159, 159, 159);
             margin: 3px 3px;
             min-height: 80px;
             height: 130px;
@@ -407,7 +386,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
     .left-area {
       width: 45%;
       display: block;
-      margin-left: 30%;
+      margin-left: 100px;
       
       .title{
         font-family: 'Hahmlet-Regular';
@@ -420,28 +399,36 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
         display: flex;
         font-family: 'GangwonEdu_OTFBoldA';
         font-size: 18px;
+        line-height: 200%;
         p{
+          width: 100px;
+          text-align: left;
+          line-height: 150%;
           font-family: 'Hahmlet-Regular';
-          color: rgb(56, 56, 156);
+          color: gray;
           font-size: 15px;
           margin-right: 10px;
           margin-bottom: 0px;
-          text-shadow: -1px 1px 0.3px rgb(56, 56, 156);
+          text-shadow: -1px 1px 0.3px gray;
         }
       }
-      div{
+      .skill-icons{
         // display: flex;
         // justify-content: left;
         // align-items: start;
         text-align: left !important;
-        margin-bottom: 10px;
-        margin-left: 10px;
+        margin-left: 100px;
+        img{
+          margin: 0px 0px 10px 0px;
+        }
       }
       
     }
+
     .right-area {
       width: 45%;
       display: block;
+      margin-top: 10px;
       
       .title{
         font-family: 'Hahmlet-Regular';
@@ -450,6 +437,16 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
         margin-left: -15px;
         text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.664);
       }
+
+      .projects{
+        .project-box{
+          width: 300px;
+          height: 280px;
+          border: 1px solid black;
+          padding: 10px 10px;
+        }
+      }
+
       span {
         display: flex;
         font-family: 'Hahmlet-Regular';
@@ -460,12 +457,13 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
           text-shadow: -3px 0px 3px rgba(128, 128, 128, 0.596);
         }
       }
-
       .title-point{
         font-family: 'GangwonEdu_OTFBoldA';
         color: rgba(var(--bs-emphasis-color-rgb), 0.55);
         text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
       }
+
+
     }
       
     button{
@@ -477,7 +475,7 @@ $bg-black: rgba(var(--bs-emphasis-color-rgb), 0.15);
       min-width: 100px;
       width: max-content;
       padding: auto 20px auto 20px;
-      margin: 10px;
+      margin: 30px 40px 0px 0px;
       border-radius: 16px;
       width: fit-content;
       text-align: center;

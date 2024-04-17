@@ -8,19 +8,6 @@ export let Context1 = createContext()
 
 function Mine() {
   let [items, setItems] = useState(item);
-  axios.get('https://codingapple1.github.io/shop/data2.json' )
-  .then((res) => {
-      let clipitems = [...items];
-      res.data.forEach(data => {
-        if(clipitems.length < 7){
-          clipitems.push(data);
-          setItems(clipitems);
-        }
-      });
-  })
-  .catch(()=>{
-      console.log('axios fail')
-  })
 
   return (
     <div className="mine-container">
@@ -29,7 +16,7 @@ function Mine() {
         <div className="filter-box">
           <div className="title">MY PAGE</div>
           <input placeholder=" 아이템명 검색"></input>
-          <div className="find-icon"><button></button></div>
+          <div className="find-icon"><img width="18px;" height="20px" src="../assets/icon/search.svg" /></div>
           <button>ALL</button>
           <button>HIDDEN</button>
           <button>LIKE</button>
@@ -55,7 +42,8 @@ function Card(props) {
   let navigate = useNavigate();
   return (
       <>
-        <div className="item-card col-md-4" onClick={()=>{ navigate(`/detail/${props.item.itemId}`)}} >
+        <div className="item-card col-md-4" 
+             onClick={()=>{ navigate(`/detail/${props.item.itemId}`,{state: { item : props.item }} )}} >
           <div>
             <img src={props.item.itemImg} alter="" width="200px;" height="200px;" />
           </div>
