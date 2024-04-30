@@ -17,13 +17,13 @@ function Items() {
       fontFamily: 'GangwonEdu_OTFBoldA',
       appearance: 'none',
       width: 200, 
-      height: 20, 
+      height: 15, 
       backgroundColor: 'rgba(242, 238, 238, 0.676)',
       fontSize: 14,
       border: 'none',
       borderRadius: 15,
       boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)',
-      padding: '0px 0px 0px 0px',
+      padding: '0px 0px 0px 10px',
     }),
     option: (styles) => ({ ...styles, 
       fontFamily: 'GangwonEdu_OTFBoldA',
@@ -81,7 +81,9 @@ function Card(props) {
         <div className="item-card col-md-3" 
              onClick={()=>{ navigate(`/detail/${props.item.itemId}`, {state: { item : props.item }})}} >
           <img src={props.item.itemImg} alter="" width="200px;" height="200px;" />
-          <h4>{props.item.itemNm}</h4>
+          <div className='card-title'>
+            <span>{props.item.itemNm.substring(0,14)}</span>
+          </div>
           <div className='card-row2'>  
             <span>{props.item.owner} </span>
             <span>🤍{props.item.liker.length} </span>

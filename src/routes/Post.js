@@ -26,16 +26,19 @@ function Post() {
                 <div className="posts-img">
                     { p.imgFile === '' ?
                       <img width="100%;" height="50%;" className="no-Image" src="../assets/icon/photo.svg" /> 
-                      : <img width="95%;" height="100%;" src={ p.imgFile } /> 
+                      : <img width="100%;" height="100%;" src={ p.imgFile } /> 
                     }
-                  <button> #Item
+                  <button> 
+                    #Item
                     <Routes >
                       <Route path="/items" element={ <Items /> } />
                     </Routes>
                   </button> 
                 </div>
                 <div className="posts-context"> 
-                   {p.context}
+                  <textarea readOnly>
+                    {p.context}
+                  </textarea>
                    <br/>
                 </div> 
               </div>
