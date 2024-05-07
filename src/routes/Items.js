@@ -80,7 +80,7 @@ function Card(props) {
       <>
         <div className="item-card col-md-3" 
              onClick={()=>{ navigate(`/detail/${props.item.itemId}`, {state: { item : props.item }})}} >
-          <img src={props.item.itemImg} alter="" width="200px;" height="200px;" />
+          <img src={props.item.itemImg} alter="" width="260px;" height="230px;" />
           <div className='card-title'>
             <span>{props.item.itemNm.substring(0,14)}</span>
           </div>

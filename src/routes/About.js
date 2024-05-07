@@ -8,115 +8,27 @@ function About() {
 
   return (
     <div className="about-container">
-      <div className="introduce-box">
-        <div className="left-area">
-          <span className="title"> Who is Developer ?</span>
-          <span > <p>Name</p> Eunbi Noh </span>
-          <span > <p>Stack</p> Frontend Developer</span>
-          <span > <p>Career</p> Corp.BIZBEE (2021.09- ) </span>
-          <span > <p>Tech</p> Vue, React, Angular </span>
-          <span > <p>License</p> 정보처리기사 취득(2022.11) </span>
-          <span > <p>Tool </p> STS, IntelliJ, VScode </span>
-          <span > <p>Skills</p> _ </span>
-          <div className="skill-icons">
-            <img src="/assets/img/FE_SPEC1_1.png" width="40px;"  height="30px;" />
-            <img src="/assets/img/FE_SPEC1_2.png" width="40px;"  height="30px;" />
-            <img src="/assets/img/FE_SPEC1_3.png" width="40px;"  height="30px;" />
-            <img src="/assets/img/FE_SPEC2_1.png" width="40px;"  height="30px;" />
-            <img src="/assets/img/FE_SPEC2_2.png" width="40px;"  height="30px;" />
-          </div>  
-          <div className="skill-icons">
-            <img src="/assets/img/FE_SPEC4.png" width="40px;"  height="35px;" />
-            <img src="/assets/img/FE_SPEC3.png" width="40px;"  height="35px;" />
-            <img src="/assets/img/FE_SPEC7.png" width="45px;"  height="35px;" />
-            <img src="/assets/img/FE_SPEC8.png" width="33px;"  height="35px;" />
-            <img src="/assets/img/FE_SPEC5.png" width="37px;"  height="32px;" />
-            <img src="/assets/img/FE_SPEC6.png" width="40px;"  height="35px;" />
-          </div>
+      <img src="/assets/img/water-main.jpg"/>
+      <div className="context">
+        <div className="main">
+          <span className="title">Water Water Exchange ?</span>
+          <span > <p>` Excercise to Saving Time & Property ` </p></span>
+          <span > <p>Item-Item </p> 거래과정에서 낭비되는 시간과 소비를 줄임으로써</span>
+          <span > <p>흐르는 물</p>과 같은 운동을 만들어보자는 뜻을 담은</span>
+          <span > <p>물물교환</p> 프로그램 입니다.</span>
         </div>
-        <div className="right-area">
-          <span className="title"> Career History</span>
-          <div className="projects">
-            <div className="project-box">
-              {
-                historys.map((h,i) => {
-                  return(
-                    <textarea readOnly>{ h.context }</textarea>
-                  )
-                })
-              }
-            </div>
-{/*
-  <span >      
-    <img width="20px;" height="20px" src="../assets/icon/time.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/hope.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/trade.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/user.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/view.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/vip.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/water.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/gift.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/like-post.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/like.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/mail.svg" /> 
-  </span>
-  <span > 
-    <img width="20px;" height="20px" src="../assets/icon/cate-baby.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/cate-beauty.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/cate-cloth.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/cate-digital.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/cate-hobby.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/cate-home.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/cate-sports.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/cate-ticket.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/cate-tree.svg" /> 
-  </span>
-  <span > 
-    <img width="20px;" height="20px" src="../assets/icon/add.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/remove.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/delete.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/more.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/save.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/search.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/setting.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/alert.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/no-alert.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/notice.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/help.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/edit.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/filter.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/list.svg" /> 
-  </span>
-  <span > 
-    <img width="20px;" height="20px" src="../assets/icon/drop.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/fast.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/password.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/lock.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/unlock.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/fragile.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/money.svg" /> 
-  </span>
-  <span > 
-    <img width="20px;" height="20px" src="../assets/icon/photo.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/nice.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/sad.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/sun.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/cloud.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/cherry.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/duck.svg" /> 
-    <img width="20px;" height="20px" src="../assets/icon/flower.svg" /> 
-  </span>
-*/}
-
-          </div>
-
-          <button>
-              _Email 
-            <img width="20px;" height="20px" src="../assets/icon/mail.svg" /> 
-           </button>
+        
+        <div className="sub">
+          <span className="title-point">@Point </span>
+          <span>1. 물건의 가격이 아닌, 상대방의 수요가 교환물건의 가치를 결정</span>
+          <span>2. 교환되어 소유자가 바뀐 물건은 다시 재거래&기록 확인 가능</span>
+          <span>3. 댓글로 경매 시스템 유사 교환가치를 설득 or 협의 가능</span>
+          <span>4. 일상 포스팅을 통한 사용자 감성과 아이템 스토리 공유</span>
+          <span className="title-proceed">@Proceeding </span>
+          <span >-  거래완료 전 예약확정 상태로 1:1 채팅기능 제공 예정 </span>
+          <span >-  거래완료 후 직거래/택배/등 교환시스템 제외 </span>
         </div>
-
-      </div> 
+      </div>
     </div> 
   )
 }
