@@ -148,8 +148,8 @@ body {
         width: 40%;
         background-image: linear-gradient(
           to right,
-          rgba(2, 2, 2, 0.696),
-          rgba(36, 36, 55, 0.356)
+          rgba(50, 50, 50, 0.447),
+          rgba(33, 33, 41, 0.454)
         ), url("../img/x-main/water-half.jpg");
         background-repeat: no-repeat;
         background-size: 100% 95%;
@@ -252,8 +252,8 @@ body {
 
     background-image: linear-gradient(
       to right,
-      rgba(12, 12, 12, 0.721),
-      rgba(25, 25, 38, 0.532)
+      rgba(50, 50, 50, 0.6),
+      rgba(33, 33, 41, 0.751)
     ), url("../img/x-main/water-main.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -333,17 +333,17 @@ body {
 
             .posts-context{
               font-family: 'GangwonEdu_OTFBoldA';
-              border: 1px solid  rgb(159, 159, 159);
-              margin: 3px 3px;
+              border: 1px solid #384146d0;
+              margin: 4px 4px;
               padding: 10px 10px;
               
               textarea{
                 border: none;
                 width: 370px;
                 height: 120px;
-                font-size: 13px;
+                font-size: 14px;
                 resize: none;
-                background-color:#ced9dfb1;
+                background-color:#9caab15e;
               }
               textarea:focus {
                 outline: 0;
@@ -377,16 +377,17 @@ body {
               font-family: 'GangwonEdu_OTFBoldA';
               font-size: 18px;
               p{
-                color: rgb(56, 56, 156);
+                color:#327ba9;
                 margin-bottom: 0px;
-                text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.596);
+                font-weight: bolder;
+                text-shadow: -1px 1px 2px #96adbabb;
               }
             }
             .title{
               font-family: 'Hahmlet-Regular';
               font-size: 30px;
               margin-bottom: 20px;
-              text-shadow: -3px 5px 10px gray;
+              text-shadow: -3px 5px 10px #577181;
             }
           }
           
@@ -402,7 +403,7 @@ body {
               margin-top: 10px;
               font-family: 'GangwonEdu_OTFBoldA';
               font-size: 20px;
-              color:rgb(56, 56, 156);
+              color:#388cc1;
               text-align: left;
               text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
             }
@@ -410,7 +411,7 @@ body {
               margin-top: 20px;
               font-family: 'GangwonEdu_OTFBoldA';
               font-size: 20px;
-              color: rgba(56, 56, 156, 0.578);
+              color: #2c556f;
               text-align: left;
               text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
             }

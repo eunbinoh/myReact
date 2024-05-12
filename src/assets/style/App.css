@@ -127,7 +127,7 @@ body .mine-container {
 body .mine-container .container-left {
   display: flex;
   width: 40%;
-  background-image: linear-gradient(to right, rgba(2, 2, 2, 0.696), rgba(36, 36, 55, 0.356)), url("../img/x-main/water-half.jpg");
+  background-image: linear-gradient(to right, rgba(50, 50, 50, 0.447), rgba(33, 33, 41, 0.454)), url("../img/x-main/water-half.jpg");
   background-repeat: no-repeat;
   background-size: 100% 95%;
 }
@@ -218,7 +218,7 @@ body .post-container {
   display: inline-block;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   margin: 0px auto 0 auto;
-  background-image: linear-gradient(to right, rgba(12, 12, 12, 0.721), rgba(25, 25, 38, 0.532)), url("../img/x-main/water-main.jpg");
+  background-image: linear-gradient(to right, rgba(50, 50, 50, 0.6), rgba(33, 33, 41, 0.751)), url("../img/x-main/water-main.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -294,17 +294,17 @@ body .post-container .posts .posts-contents .posts-contents-box .posts-img butto
 }
 body .post-container .posts .posts-contents .posts-contents-box .posts-context {
   font-family: "GangwonEdu_OTFBoldA";
-  border: 1px solid rgb(159, 159, 159);
-  margin: 3px 3px;
+  border: 1px solid rgba(56, 65, 70, 0.8156862745);
+  margin: 4px 4px;
   padding: 10px 10px;
 }
 body .post-container .posts .posts-contents .posts-contents-box .posts-context textarea {
   border: none;
   width: 370px;
   height: 120px;
-  font-size: 13px;
+  font-size: 14px;
   resize: none;
-  background-color: rgba(206, 217, 223, 0.6941176471);
+  background-color: rgba(156, 170, 177, 0.368627451);
 }
 body .post-container .posts .posts-contents .posts-contents-box .posts-context textarea:focus {
   outline: 0;
@@ -331,15 +331,16 @@ body .about-container .context .main span {
   font-size: 18px;
 }
 body .about-container .context .main span p {
-  color: rgb(56, 56, 156);
+  color: #327ba9;
   margin-bottom: 0px;
-  text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.596);
+  font-weight: bolder;
+  text-shadow: -1px 1px 2px rgba(150, 173, 186, 0.7333333333);
 }
 body .about-container .context .main .title {
   font-family: "Hahmlet-Regular";
   font-size: 30px;
   margin-bottom: 20px;
-  text-shadow: -3px 5px 10px gray;
+  text-shadow: -3px 5px 10px #577181;
 }
 body .about-container .context .sub {
   display: block;
@@ -354,7 +355,7 @@ body .about-container .context .sub .title-point {
   margin-top: 10px;
   font-family: "GangwonEdu_OTFBoldA";
   font-size: 20px;
-  color: rgb(56, 56, 156);
+  color: #388cc1;
   text-align: left;
   text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
 }
@@ -362,7 +363,7 @@ body .about-container .context .sub .title-proceed {
   margin-top: 20px;
   font-family: "GangwonEdu_OTFBoldA";
   font-size: 20px;
-  color: rgba(56, 56, 156, 0.578);
+  color: #2c556f;
   text-align: left;
   text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
 }
