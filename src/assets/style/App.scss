@@ -421,6 +421,43 @@ body {
   }
 
 
+  .projects{
+    
+    .container-area{
+      height: 600px;
+      margin: 1% 7%;
+      overflow-y: scroll;
+      
+      .mobile_frame{
+        width: 80%;
+        border: 1px solid #2c556f;
+        padding: 10px 10% 10px 80px;
+        margin: 1% 10%;
+        display: inline-flex;
+
+        img{
+          height: 80vh;
+          width: 350px;
+          margin-right: 30px;
+        }
+        .descript{
+          border: 1px solid #2c556f;
+          border-radius: 8px;
+          margin-top: 30px;
+          padding: 40px 30px;
+          display: block;
+          height: 75vh;
+          width: 700px;
+        }
+      }
+      .scroll{
+        width: 25px;
+        height: 25px;
+        float: right;
+      }
+    }
+  }
+
 
   .navbar-container {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
