@@ -8,7 +8,7 @@ function About() {
 
   return (
     <div className="about-container">
-      <img src="/assets/img/water-main.jpg"/>
+      <img src="/assets/img/water-half.jpg"/>
       <div className="context">
         <div className="main">
           <span className="title">Water Water Exchange ?</span>
