@@ -14,12 +14,11 @@ function App() {
   return (
     <div className="app">
       {
-        JSON.stringify({pathname}).indexOf('proj_') < 0 ? <Home /> : null
+        JSON.stringify({pathname}).indexOf('proj_') < 0 ? <Home /> : <></>
       }
-       
       <Routes>
-        <Route path="/proj_metahub" element={ <Project_1 /> } /> 
-        <Route path="/proj_metahub" element={ <Project_2 /> } />
+        {/* <Route path="/proj_metahub" element={ <Project_1 /> } />  */}
+        {/* <Route path="/proj_metahub" element={ <Project_2 /> } /> */}
         <Route path="/proj_metahub" element={ <Project_3 /> } />
       </Routes>
     </div>
