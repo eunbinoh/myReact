@@ -16,7 +16,7 @@ let hopes = [
       context : '5세 유치원모자 리미티드 에디션이랑 어떠세요?',
       writeDate : new Date(),
       updateDate : new Date(),
-      status : '10',
+      status : '40',
       visibleYn : true
     },
     {

@@ -8,9 +8,12 @@ import { Nav} from "react-bootstrap"
 
 function Detail() {
   const location = useLocation();
-  let [item, setItem] = useState(location.state?.item)
+  const [item, setItem] = useState(location.state?.item)
+  const [hope, setHopes] = useState( hopes.filter(h => {return h.itemId == item.itemId }) )
 
-  let [tab, setTab] = useState(0)
+
+
+  
   return (
     <div className="detail-container">
         <div className="row">
@@ -28,34 +31,33 @@ function Detail() {
           </div>
         </div>
 
-        <Nav variant="tabs" defaultActiveKey="link0">
-          {  item.buyHoper?.map((buyHoper, i) => {
-              return(
-                <Nav.Item>
-                  <Nav.Link 
-                    onClick={()=>{ setTab(i)
-                      // ,setHopes(hopes.find( x =>{return x.itemId === item.itemId 
-                      //                       && x.hoperId ===item.buyHoper[i]}) ) 
-                    }}  
-                    eventKey="link0"
-                  >{buyHoper}</Nav.Link>
-                </Nav.Item>
-              )
-            })
-          }
-        </Nav>
-        <div className="detail-hope-tab">
-          <TabContent item={item} tab={tab}/>
+        <div className="hopes-container">  
+          <div className="hopes">
+            { hope.map((x,i)=>{
+                return (
+                  <div className='row'>
+                    <span className='hoper'>  {x.hoper} </span>
+                    <span className='content'> {x.context} </span>
+                    <span className='wDate'> ( {x.writeDate.toDateString()} ) </span>
+                    <span className='state'>
+                      { x.status === '10' ? <img width="18px;" height="20px" src="../assets/icon/hope.svg" />
+                        : x.status === '30' ?<img width="18px;" height="20px" src="../assets/icon/time.svg" />
+                        : x.status === '40' ?<img width="18px;" height="20px" src="../assets/icon/trade.svg" />
+                        : <></>
+                      }
+                    </span>
+                  </div>
+                    // <span className='visible'> {x.visibleYn.toString()} </span>
+                )
+              })
+            }
+          </div>
         </div>
         
     </div> 
   )
 }
 
-function TabContent({item, tab}){
-  let [hope, setHopes] = useState(hopes.find( x => x.itemId === item.itemId 
-                                 && x.hoperId ===item.buyHoper[tab]) )
-  return ([ <div className="detail-hope-tab">{ hope?.content }</div> ])
-}
+
 
 export default Detail;

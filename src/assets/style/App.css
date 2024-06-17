@@ -207,8 +207,25 @@ body .detail-container {
   margin: 50px 5px 0 0px;
   overflow: hidden;
 }
-body .detail-container .detail-hope-tab {
+body .detail-container .hopes-container {
   margin: 15px 10px;
+}
+body .detail-container .hopes-container .hopes {
+  width: 50%;
+  height: 100%;
+  border: 1px solid #2c556f;
+  display: block;
+  padding: 10px 10px;
+}
+body .detail-container .hopes-container .row {
+  display: block;
+}
+body .detail-container .hopes-container .row .hoper {
+  font-size: 18px !important;
+}
+body .detail-container .hopes-container .row .wDate {
+  margin-left: -20px;
+  font-size: 13px !important;
 }
 body .post-container {
   width: 100%;

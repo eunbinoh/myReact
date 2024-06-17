@@ -236,8 +236,36 @@ body {
     margin: 50px 5px 0 0px;
     overflow: hidden;
 
-    .detail-hope-tab{
+    .hopes-container{
       margin: 15px 10px;
+
+      .hopes{
+        width: 50%;
+        height: 100%;
+        border: 1px solid #2c556f;
+        display: block;
+        padding: 10px 10px;
+      }
+      .row {
+        display: block;
+        .hoper{
+          font-size: 18px !important;
+        }
+        .content{
+          
+        }
+        .wDate{
+          margin-left: -20px;
+          font-size: 13px !important;
+        }
+        .state{
+          
+        }
+        .visible{
+
+        }
+      }
+
     }
   }
 

@@ -9,8 +9,8 @@ import { isVisible } from '@testing-library/user-event/dist/utils/index.js';
 export let Context1 = createContext()
 
 function Items() {
-  let [items, setItems ] = useState(item);
-  let [cates, setCates ] = useState(category)
+  const [items, setItems ] = useState(item);
+  const [cates, setCates ] = useState(category)
 
   const selectStyles = {
     control: (styles) => ({ ...styles, 
