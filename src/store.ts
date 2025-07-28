@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import user from './store/userSlice.js'
-import stock from './store/cartSlice.js'
+import user from './store/userSlice'
+import stock from './store/cartSlice'
 
 /** 
  * createSlice = useState  

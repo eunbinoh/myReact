@@ -2,14 +2,14 @@ import '../assets/style/App.css';
 import { Route, Routes, useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useState, useEffect, useContext, useTransition } from "react";
-import item from './../data/item.js'
-import hopes from './../data/hopes.js'
+import item from './../data/item';
+import hopes from './../data/hopes';
 import { Nav} from "react-bootstrap"
 
-function Detail() {
+function Detail(): JSX.Element {
   const location = useLocation();
-  const [item, setItem] = useState(location.state?.item)
-  const [hope, setHopes] = useState( hopes.filter(h => {return h.itemId == item.itemId }) )
+  const [item, setItem] = useState<any>(location.state?.item)
+  const [hope, setHopes] = useState<any[]>( hopes.filter((h: any) => {return h.itemId == item.itemId }) )
 
 
 
@@ -18,7 +18,7 @@ function Detail() {
     <div className="detail-container">
         <div className="row">
           <div className="col-md-6">
-            <img src={item.itemImg} alter="" width="100%" height="500px"/>
+            <img src={item.itemImg} alt="" width="100%" height="500px"/>
           </div>
           <div className="col-md-6">
             <h4 className="pt-5">{item.itemNm} </h4>
@@ -33,7 +33,7 @@ function Detail() {
 
         <div className="hopes-container">  
           <div className="hopes">
-            { hope.map((x,i)=>{
+            { hope.map((x: any,i: number)=>{
                 return (
                   <div className='row'>
                     <span className='hoper'>  {x.hoper} </span>

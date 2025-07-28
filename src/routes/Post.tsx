@@ -2,16 +2,16 @@ import '../assets/style/App.css';
 import { Route, Routes, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useState, useEffect, useContext, useTransition } from "react";
-import Items from './Items.js';
-import post from '../data/post.js'
+import Items from './Items';
+import post from '../data/post'
 
-function Post() {
-  const [posts, setPosts] = useState(post);
+function Post(): JSX.Element {
+  const [posts, setPosts] = useState<any[]>(post);
 
   return (
     <div className="post-container">
     {
-      posts.map((p) => {
+      posts.map((p: any) => {
         return(
           <div className="posts">
             <div className="posts-contents">

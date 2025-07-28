@@ -1,10 +1,10 @@
 import '../assets/style/App.css';
 import styled from 'styled-components';
 import { useState } from 'react';
-import category from '../data/category.js'
+import category from '../data/category'
 
 
-function SelectBox(props) {
+function SelectBox(props:any) {
   const Select = styled.div`
     @font-face {
       font-family: "GangwonEdu_OTFBoldA";
@@ -40,7 +40,7 @@ function SelectBox(props) {
   let [cates, setCates ] = useState(category)
   // setCates({tpCode:'01', tpName:'의류/패션잡화'})
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     // const idx = e.target.value
     // const selectTp = cates[idx].tpName
     // setValue(selectTp);
@@ -49,11 +49,11 @@ function SelectBox(props) {
 
 	return (
     <Select onChange={handleChange}>
-      {cates.map((option) => (
+      {cates.map((option:any) => (
         <option
           key={option.tpCode}
           value={option.tpCode}
-          defaultValue={cates[0].tpCode}
+          defaultValue={cates[0].value}
         >
           {option.tpName}
         </option>

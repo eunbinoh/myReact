@@ -1,19 +1,19 @@
 import '../assets/style/App.css';
 import { Routes, Route, useNavigate, useParams} from 'react-router-dom'
 import { createContext,useState,useEffect, useMemo } from 'react';
-import item from '../data/item.js'
-import category from '../data/category.js'
+import item from '../data/item'
+import category from '../data/category'
 import Select from 'react-select'
-import { isVisible } from '@testing-library/user-event/dist/utils/index.js';
+import { isVisible } from '@testing-library/user-event/dist/utils/index';
 
-export let Context1 = createContext()
+export let Context1 = createContext<any>(undefined)
 
-function Items() {
-  const [items, setItems ] = useState(item);
-  const [cates, setCates ] = useState(category)
+function Items(): JSX.Element {
+  const [items, setItems ] = useState<any[]>(item);
+  const [cates, setCates ] = useState<any[]>(category)
 
   const selectStyles = {
-    control: (styles) => ({ ...styles, 
+    control: (styles:any) => ({ ...styles, 
       fontFamily: 'GangwonEdu_OTFBoldA',
       appearance: 'none',
       width: 200, 
@@ -25,14 +25,14 @@ function Items() {
       boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)',
       padding: '0px 0px 0px 10px',
     }),
-    option: (styles) => ({ ...styles, 
+    option: (styles:any) => ({ ...styles, 
       fontFamily: 'GangwonEdu_OTFBoldA',
       backgroundColor: 'rgba(242, 238, 238, 0.676)',
       cursor: 'pointer',
       lineHeight: '80%',
       fontSize: 13,
     }),
-    singleValue: (styles) => ({ ...styles, 
+    singleValue: (styles:any) => ({ ...styles, 
       height: 20,
       paddingTop: 1
     })
@@ -74,13 +74,13 @@ function Items() {
 }
 
 /** Card Component */
-function Card(props) {
+function Card(props: any): JSX.Element {
   let navigate = useNavigate();
   return (
       <>
         <div className="item-card col-md-3" 
              onClick={()=>{ navigate(`/detail/${props.item.itemId}`, {state: { item : props.item }})}} >
-          <img src={props.item.itemImg} alter="" width="260px;" height="230px;" />
+          <img src={props.item.itemImg} alt="" width="260px;" height="230px;" />
           <div className='card-title'>
             <span>{props.item.itemNm.substring(0,14)}</span>
           </div>

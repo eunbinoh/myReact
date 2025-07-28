@@ -3,15 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav} from 'react-bootstrap'
 import { Routes, Route, useNavigate} from 'react-router-dom'
 import { createContext, useState } from 'react';
-import item from '../data/item.js'
-import Items from './Items.js';
-import Detail from './Detail.js';
-import Post from './Post.js';
-import Mine from './Mine.js';
-import About from './About.js';
-export let Context1 = createContext()
+import Items from './Items';
+import Detail from './Detail';
+import Post from './Post';
+import Mine from './Mine';
+import About from './About';
+export let Context1 = createContext<any>(undefined)
 
-function Home() {
+function Home(): JSX.Element {
   let navigate = useNavigate();
 
   return (
@@ -38,7 +37,7 @@ function Home() {
         <Route 
           path="/items" 
           element={ 
-            <Context1.Provider className="component-container" value={{ }}>
+            <Context1.Provider value={{ }}>
               <Items /> 
             </Context1.Provider>
           } 
@@ -46,7 +45,7 @@ function Home() {
         <Route 
           path="/detail/:id" 
           element={ 
-            <Context1.Provider className="component-container" value={{ }}>
+            <Context1.Provider  value={{ }}>
               <Detail /> 
             </Context1.Provider>
           } 
@@ -54,7 +53,7 @@ function Home() {
         <Route 
           path="/post" 
           element={ 
-            <Context1.Provider className="component-container" value={{ }}>
+            <Context1.Provider value={{ }}>
               <Post /> 
             </Context1.Provider>
           } 
@@ -62,7 +61,7 @@ function Home() {
         <Route 
           path="/mine" 
           element={ 
-            <Context1.Provider className="component-container" value={{ }}>
+            <Context1.Provider value={{ }}>
               <Mine /> 
             </Context1.Provider>
           } 
@@ -70,7 +69,7 @@ function Home() {
         <Route 
           path="/about" 
           element={ 
-            <Context1.Provider className="component-container" value={{ }}>
+            <Context1.Provider value={{ }}>
               <About /> 
             </Context1.Provider>
           } 

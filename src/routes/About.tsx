@@ -2,9 +2,9 @@ import { useState } from 'react';
 import '../assets/style/App.css';
 import history from '../data/history';
 
-function About() {
-  const [historys, setHistory ] = useState(history);
-  const [tabs, setTabs ] = useState(0);
+function About(): JSX.Element {
+  const [historys, setHistory ] = useState<any>(history);
+  const [tabs, setTabs ] = useState<number>(0);
 
   return (
     <div className="about-container">

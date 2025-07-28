@@ -1,13 +1,13 @@
 import '../assets/style/App.css';
 import { Routes, Route, useNavigate, useParams} from 'react-router-dom'
 import { createContext,useState,useEffect } from 'react';
-import item from '../data/item.js'
+import item from '../data/item'
 import axios from 'axios';
 
-export let Context1 = createContext()
+export let Context1 = createContext<any>(undefined)
 
-function Mine() {
-  let [items, setItems] = useState(item);
+function Mine(): JSX.Element {
+  let [items, setItems] = useState<any[]>(item);
 
   return (
     <div className="mine-container">
@@ -38,14 +38,14 @@ function Mine() {
 }
 
 /** Card Component */
-function Card(props) {
+function Card(props: any): JSX.Element {
   let navigate = useNavigate();
   return (
       <>
         <div className="item-card col-md-4" 
              onClick={()=>{ navigate(`/detail/${props.item.itemId}`,{state: { item : props.item }} )}} >
           <div>
-            <img src={props.item.itemImg} alter="" width="200px;" height="200px;" />
+            <img src={props.item.itemImg} alt="" width="200px;" height="200px;" />
           </div>
           <div>
             <span className='card-title'>{props.item.itemNm}</span>

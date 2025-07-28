@@ -1,12 +1,14 @@
 import './assets/style/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './routes/Home.js';
+import Home from './routes/Home';
 
 function App() {
   return (
-    <div className="app">
-      <Home />
-    </div>
+    <>
+      <div>
+        <Home />
+      </div>
+    </>
   );
 }
 
