@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../assets/style/App.css';
 import history from '../data/history';
 
 function About(): JSX.Element {

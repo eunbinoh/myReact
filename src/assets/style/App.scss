@@ -15,533 +15,770 @@ $bg-gray: rgb(242, 238, 238);
 $bg-black: rgb(236, 238, 240);;
 
 
+// Variables
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$text-primary: #333;
+$text-secondary: #666;
+$text-muted: #999;
+$bg-light: #f8f9fa;
+$white: #ffffff;
+$border-radius: 20px;
+$transition: all 0.3s ease;
+$shadow-light: 0 10px 30px rgba(0, 0, 0, 0.1);
+$shadow-heavy: 0 12px 35px rgba(0, 0, 0, 0.2);
+
+// Mixins
+@mixin gradient-bg {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+// Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: $text-primary;
+  overflow-x: hidden;
+}
+
+.header {
+  position: fixed;
+  top: 0;
   width: 100%;
-  height: 100vh;
-  background-color: $bg-black;
-  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: $transition;
 
-  .start {
-    opacity : 0
-  }
-  .end {
-    opacity : 1;
-    transition: opacity 0.5s;
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   }
 
-  .main-container{
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    background-image: linear-gradient(
-      to right,
-      rgba(2, 2, 2, 0.696),
-      rgba(36, 36, 55, 0.356)
-    ), url("../img/x-main/water-main.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    // width: 100vw;
-    height : 100vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
   }
 
-  .item-container{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    display: block;
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $primary-color;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-    .filter-box {
-      display: flex;
-      width: 100%;
-      height: 50px;
-      background-color: $bg-gray;
-      align-items: end;
-      padding-bottom: 10px;
-      
-      span {
-        font-size: 15px;
-        height: 30px;
-        padding: 5px 5px ;
-        margin-left: 10px;
-        width: fit-content;
-      }
-
-      input{
-        font-family: 'GangwonEdu_OTFBoldA';
-        font-size: 13px;
-        height: 30px;
-        margin-left: 5px;
-        width: 60%;
-        border: none;
-        border-radius: 12px;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-        background-color: rgba(242, 238, 238, 0.676);
-        padding: 5px 10px 0px 10px;
-      }
-
-      .find-icon{
-        display:flex;
-        margin:0px 5px 4px 5px !important;
-      }
-      button{
-        font-size: 13px;
-        background-color: whitesmoke;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25) !important;
-        height: 30px;
-        padding: auto 5px ;
-        margin-right: 10px;
-        border-radius: 5px;
-        width: fit-content;
-      }
-
+    .logo-icon {
+      font-size: 2rem;
     }
+  }
 
-    .item-list {
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      display: flex;
-      width: 100%;
-      height : 85vh;
-      overflow-x: hidden;
-      overflow-y: auto !important;
-      margin: 0px auto 10px auto;
-      padding-left: 50px;
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
 
-      .item-card{
-        text-align: left;
-        margin-top: 7px;
+    a {
+      text-decoration: none;
+      color: $text-primary;
+      font-weight: 500;
+      transition: color 0.3s ease;
 
-        .card-title{
-          display: block;
-          width: 220px !important;
-          overflow : hidden;
-          margin: 10px 0px 0px 0px;
-          span{
-            font-family: Hahmlet-Regular;
-            font-size: 20px;
-          }
-        }
-        .card-row2 {
-          display: inline;
-          font-family: GangwonEdu_OTFBoldA;
-          margin: 5px 0px;
-        }
-        .card-row3{
-          display: flex;
-          width: 220px;
-          height: 30px;
-          margin: 0px 0px 30px 0px;
-          overflow: hidden;
-          span{
-            font-family: GangwonEdu_OTFBoldA;
-          }
-        }
-        cursor: pointer;
+      &:hover {
+        color: $primary-color;
       }
     }
   }
 
-  .mine-container{
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      display: inline-flex;
-      margin: 0px 5px 0 0px;
-      width: 100%;
-      height: 100vh;
+  .cta-button {
+    @include gradient-bg;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 
-      .container-left {
-        display: flex;
-        width: 40%;
-        background-image: linear-gradient(
-          to right,
-          rgba(50, 50, 50, 0.447),
-          rgba(33, 33, 41, 0.454)
-        ), url("../img/x-main/water-half.jpg");
-        background-repeat: no-repeat;
-        background-size: 100% 95%;
-      }
-      
-      .container-right{
-        width: 60%;
-        height : 90vh;
-
-        .filter-box {
-          display: flex;
-          height: 50px;
-          background-color: $bg-gray;
-          align-items: end;
-          padding-bottom: 10px;
-          
-          .title{
-            min-width: max-content;
-            width: 180px;
-            display: inline-flex;
-            font-size: 20px;
-            font-weight: 600;
-            margin: 0 10px 0 15px;
-          }
-
-          input{
-            font-family: 'GangwonEdu_OTFBoldA';
-            background-color: whitesmoke;
-            font-size: 13px;
-            height: 30px;
-            margin-left: 5px;
-            width: 45%;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-            padding-left: 10px;
-            padding-top: 8px;
-          }
-          button{
-            background-color: whitesmoke;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-            font-size: 13px;
-            height: 30px;
-            padding: auto 5px ;
-            margin-left: 10px;
-            border-radius: 5px;
-            width: fit-content;
-          }
-          .find-icon{
-            display:flex;
-            margin:0px 5px 4px 5px !important;
-          }
-        }  
-        .item-box {
-          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-          display: flex;
-          width: 100%;
-          height : 83vh;
-          overflow-x: hidden;
-          overflow-y: auto;
-          padding: 10px 10px;
-          text-align: center;
-          
-          
-          .item-card{
-            .card-title{
-              font-family: GangwonEdu_OTFBoldA;
-              font-size: 18px;
-              margin: 10px 0px 0px 0px;
-            }
-            span{
-              font-family: GangwonEdu_OTFBoldA;
-              font-size: 14px;
-              margin: 2px 5px;
-            }
-            cursor: pointer;
-          }
-        }
-      }
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
+}
 
-  .detail-container {
-    font-family: 'GangwonEdu_OTFBoldA';
-    margin: 50px 5px 0 0px;
+.main-page {
+  
+  .hero {
+    min-height: 100vh;
+    @include gradient-bg;
+    @include flex-center;
+    position: relative;
     overflow: hidden;
 
-    .hopes-container{
-      margin: 15px 10px;
-
-      .hopes{
-        width: 50%;
-        height: 100%;
-        border: 1px solid #2c556f;
-        display: block;
-        padding: 10px 10px;
-      }
-      .row {
-        display: block;
-        .hoper{
-          font-size: 18px !important;
-        }
-        .content{
-          
-        }
-        .wDate{
-          margin-left: -20px;
-          font-size: 13px !important;
-        }
-        .state{
-          
-        }
-        .visible{
-
-        }
-      }
-
-    }
-  }
-
-  .post-container {
-    width: 100%;
-    height : 89vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    display: inline-block;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin: 0px auto 0 auto;
-
-    background-image: linear-gradient(
-      to right,
-      rgba(50, 50, 50, 0.6),
-      rgba(33, 33, 41, 0.751)
-    ), url("../img/x-main/water-main.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    
-    .posts{
-      padding-top: 20px;
-      margin: 10px auto;
-      border: 1px solid  rgb(0, 0, 0);
-      height: max-content;
-      width: 500px;
-      background-color:#ced9dfad;
-
-      .posts-contents{
-        margin: 5px auto;
-        display: block;
-        width: 400px;
-
-        .posts-contents-header{
-          border: 1px solid  rgb(35, 35, 35);
-          height: 30px;
-          width: 400px;
-          display: inline-block;
-          text-align: left;
-        }
-        .posts-contents-header:first-child{
-          font-size: 13px;
-          padding: 5px 5px;
-        }
-        .like-button{
-          float:right;
-          display: flex;
-          img{
-            margin-top: -18px;
-            margin-right: 3px;
-          }
-          span{
-            font-size: 12px;
-            margin: -16px 1px auto 0;
-          }
-        }
-
-        .posts-contents-box{
-            border: 1px solid  rgb(35, 35, 35);
-            margin: 5px auto 20px auto;
-            width: 400px;
-            height: fit-content;
-          
-            .posts-img{
-              display: block;
-              border: 1px solid rgb(35, 35, 35);
-              margin: 20px 4px 5px 4px;
-              height: 290px;
-              width: 390px;
-              
-              img{
-                display: flex;
-                margin : 0px auto 0px auto;
-              }
-              .no-Image{
-                margin-top: 50px !important;
-                margin-bottom: 45px !important;
-              }
-              
-              button{
-                position: relative;
-                float: right;
-                height: 20px;
-                margin-top: -25px;
-                margin-right: 5px;
-                // align-items: center;
-                border: 1px solid rgb(184, 200, 213);
-                border-radius: 10px;
-                background-color: aliceblue;
-                font-size: 11px;
-              }
-            }
-
-            .posts-context{
-              font-family: 'GangwonEdu_OTFBoldA';
-              border: 1px solid #384146d0;
-              margin: 4px 4px;
-              padding: 10px 10px;
-              
-              textarea{
-                border: none;
-                width: 370px;
-                height: 120px;
-                font-size: 14px;
-                resize: none;
-                background-color:#9caab15e;
-              }
-              textarea:focus {
-                outline: 0;
-              }
-            }
-          
-        }
-
-      }
-
-    }
-  }
-
-
-  .about-container {
-    display: inline-flex;
-    width: 100%;
-    img{
-      height : 90vh;
-      width: 50%;
-    }
-          
-    .context{
-      margin-left: 80px;
-      padding-top: 7vh;
-        .main{
-            display: block;
-            margin-bottom: 30px;
-            span {
-              display: flex;
-              font-family: 'GangwonEdu_OTFBoldA';
-              font-size: 18px;
-              p{
-                color:#327ba9;
-                margin-bottom: 0px;
-                font-weight: bolder;
-                text-shadow: -1px 1px 2px #96adbabb;
-              }
-            }
-            .title{
-              font-family: 'Hahmlet-Regular';
-              font-size: 30px;
-              margin-bottom: 20px;
-              text-shadow: -3px 5px 10px #577181;
-            }
-          }
-          
-          .sub {
-            display: block;
-            span{
-              display: flex;
-              text-align: center;
-              font-family:  'GangwonEdu_OTFBoldA';
-              font-size: 16px;
-            }
-            .title-point{
-              margin-top: 10px;
-              font-family: 'GangwonEdu_OTFBoldA';
-              font-size: 20px;
-              color:#388cc1;
-              text-align: left;
-              text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
-            }
-            .title-proceed{
-              margin-top: 20px;
-              font-family: 'GangwonEdu_OTFBoldA';
-              font-size: 20px;
-              color: #2c556f;
-              text-align: left;
-              text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
-            }
-        }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/><circle cx="900" cy="800" r="80" fill="url(%23a)"/></svg>') center/cover;
+      opacity: 0.3;
     }
 
-  }
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
 
+    .hero-content {
+      h1 {
+        font-size: 3.5rem;
+        color: white;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        font-weight: 700;
+      }
 
-  .projects{
-    
-    .container-area{
-      height: 600px;
-      margin: 1% 7%;
-      overflow-y: scroll;
-      
-      .mobile_frame{
-        width: 80%;
-        border: 1px solid #2c556f;
-        padding: 10px 10% 10px 80px;
-        margin: 1% 10%;
-        display: inline-flex;
+      .subtitle {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
 
-        img{
-          height: 80vh;
-          width: 350px;
-          margin-right: 30px;
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+    }
+
+    .btn-primary {
+      background: white;
+      color: $primary-color;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: $transition;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: $shadow-heavy;
+      }
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 1rem 2rem;
+      border: 2px solid white;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background: white;
+        color: $primary-color;
+      }
+    }
+
+    .hero-visual {
+      @include flex-center;
+      position: relative;
+    }
+
+    .exchange-animation {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      @include flex-center;
+
+      .item-circle {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        @include flex-center;
+        font-size: 3rem;
+        @include glass-effect;
+        animation: float 3s ease-in-out infinite;
+
+        &.item-1 {
+          top: 50px;
+          left: 50px;
         }
-        .descript{
-          border: 1px solid #2c556f;
-          border-radius: 8px;
-          margin-top: 30px;
-          padding: 40px 30px;
-          display: block;
-          height: 75vh;
-          width: 700px;
+
+        &.item-2 {
+          top: 50px;
+          right: 50px;
+          animation-delay: 1s;
+        }
+
+        &.item-3 {
+          bottom: 50px;
+          left: 50px;
+          animation-delay: 2s;
+        }
+
+        &.item-4 {
+          bottom: 50px;
+          right: 50px;
+          animation-delay: 0.5s;
         }
       }
-      .scroll{
-        width: 25px;
-        height: 25px;
-        float: right;
+
+      .exchange-center {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(15px);
+        border: 3px solid white;
+        @include flex-center;
+        font-size: 2.5rem;
+        color: white;
+        animation: pulse 2s ease-in-out infinite;
       }
     }
   }
 
+  .features {
+    padding: 6rem 0;
+    background: $bg-light;
 
-  .navbar-container {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 25px;
-    z-index: 999;
-    width: 100%;
-    top: 0;
-    position: sticky;
-    
-    .nav-logo{
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      font-size: 30px;
-      position: fixed;
-      left: 0 !important;
-      margin-left: 30px;
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
-    .nav-menu{
-      display: flex;
-      margin: 0px 0px 0px auto;
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: $text-primary;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: $text-secondary;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: $border-radius;
+      text-align: center;
+      box-shadow: $shadow-light;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+      }
+
+      .feature-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        @include gradient-bg;
+        border-radius: $border-radius;
+        @include flex-center;
+        font-size: 2.5rem;
+        color: white;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        color: $text-primary;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      p {
+        color: $text-secondary;
+        line-height: 1.6;
+      }
     }
   }
-  .component-container{
-    position: relative;
-  }
 
+  // How it works
+  .how-it-works {
+    padding: 6rem 0;
+    background: white;
 
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-    
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
+    .steps-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: $text-primary;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: $text-secondary;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        @include gradient-bg;
+        color: white;
+        border-radius: 50%;
+        @include flex-center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 auto 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        color: $text-primary;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      p {
+        color: $text-secondary;
+        line-height: 1.6;
+      }
     }
   }
 
-
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+  // CTA Section
+  .cta-section {
+    @include gradient-bg;
+    padding: 6rem 0;
+    text-align: center;
     color: white;
-  }
 
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
-    to {
-      transform: rotate(360deg);
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .btn-primary {
+      background: white;
+      color: $primary-color;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: $transition;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: $shadow-heavy;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(5deg); 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.1); 
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .main-page {
+    .hero {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .exchange-animation {
+        width: 300px;
+        height: 300px;
+
+        .item-circle {
+          width: 80px;
+          height: 80px;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .header .nav-menu {
+      display: none;
+    }
+
+    .features {
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .how-it-works {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .main-page {
+    .header {
+      .nav-container {
+        padding: 0 1rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+    }
+
+    .hero {
+      .hero-container {
+        padding: 0 1rem;
+      }
+
+      .hero-content {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .subtitle {
+          font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+    }
+
+    .features,
+    .how-it-works,
+    .cta-section {
+      padding: 4rem 0;
+
+      .features-container,
+      .steps-container,
+      .cta-container {
+        padding: 0 1rem;
+      }
+    }
+  }
+}
+
+
+.detail-container {
+  font-family: 'GangwonEdu_OTFBoldA';
+  margin: 50px 5px 0 0px;
+  overflow: hidden;
+
+  .hopes-container{
+    margin: 15px 10px;
+
+    .hopes{
+      width: 50%;
+      height: 100%;
+      border: 1px solid #2c556f;
+      display: block;
+      padding: 10px 10px;
+    }
+    .row {
+      display: block;
+      .hoper{
+        font-size: 18px !important;
+      }
+      .wDate{
+        margin-left: -20px;
+        font-size: 13px !important;
+      }
+
+    }
+
+  }
+}
+
+.post-container {
+  width: 100%;
+  height : 89vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: inline-block;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0px auto 0 auto;
+
+  background-image: linear-gradient(
+    to right,
+    rgba(50, 50, 50, 0.6),
+    rgba(33, 33, 41, 0.751)
+  ), url("../img/x-main/water-main.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
+  .posts{
+    padding-top: 20px;
+    margin: 10px auto;
+    border: 1px solid  rgb(0, 0, 0);
+    height: max-content;
+    width: 500px;
+    background-color:#ced9dfad;
+
+    .posts-contents{
+      margin: 5px auto;
+      display: block;
+      width: 400px;
+
+      .posts-contents-header{
+        border: 1px solid  rgb(35, 35, 35);
+        height: 30px;
+        width: 400px;
+        display: inline-block;
+        text-align: left;
+      }
+      .posts-contents-header:first-child{
+        font-size: 13px;
+        padding: 5px 5px;
+      }
+      .like-button{
+        float:right;
+        display: flex;
+        img{
+          margin-top: -18px;
+          margin-right: 3px;
+        }
+        span{
+          font-size: 12px;
+          margin: -16px 1px auto 0;
+        }
+      }
+
+      .posts-contents-box{
+          border: 1px solid  rgb(35, 35, 35);
+          margin: 5px auto 20px auto;
+          width: 400px;
+          height: fit-content;
+        
+          .posts-img{
+            display: block;
+            border: 1px solid rgb(35, 35, 35);
+            margin: 20px 4px 5px 4px;
+            height: 290px;
+            width: 390px;
+            
+            img{
+              display: flex;
+              margin : 0px auto 0px auto;
+            }
+            .no-Image{
+              margin-top: 50px !important;
+              margin-bottom: 45px !important;
+            }
+            
+            button{
+              position: relative;
+              float: right;
+              height: 20px;
+              margin-top: -25px;
+              margin-right: 5px;
+              // align-items: center;
+              border: 1px solid rgb(184, 200, 213);
+              border-radius: 10px;
+              background-color: aliceblue;
+              font-size: 11px;
+            }
+          }
+
+          .posts-context{
+            font-family: 'GangwonEdu_OTFBoldA';
+            border: 1px solid #384146d0;
+            margin: 4px 4px;
+            padding: 10px 10px;
+            
+            textarea{
+              border: none;
+              width: 370px;
+              height: 120px;
+              font-size: 14px;
+              resize: none;
+              background-color:#9caab15e;
+            }
+            textarea:focus {
+              outline: 0;
+            }
+          }
+        
+      }
+
+    }
+
+  }
+}
+
+
+.about-container {
+  display: inline-flex;
+  width: 100%;
+  img{
+    height : 90vh;
+    width: 50%;
+  }
+        
+  .context{
+    margin-left: 80px;
+    padding-top: 7vh;
+      .main{
+          display: block;
+          margin-bottom: 30px;
+          span {
+            display: flex;
+            font-family: 'GangwonEdu_OTFBoldA';
+            font-size: 18px;
+            p{
+              color:#327ba9;
+              margin-bottom: 0px;
+              font-weight: bolder;
+              text-shadow: -1px 1px 2px #96adbabb;
+            }
+          }
+          .title{
+            font-family: 'Hahmlet-Regular';
+            font-size: 30px;
+            margin-bottom: 20px;
+            text-shadow: -3px 5px 10px #577181;
+          }
+        }
+        
+        .sub {
+          display: block;
+          span{
+            display: flex;
+            text-align: center;
+            font-family:  'GangwonEdu_OTFBoldA';
+            font-size: 16px;
+          }
+          .title-point{
+            margin-top: 10px;
+            font-family: 'GangwonEdu_OTFBoldA';
+            font-size: 20px;
+            color:#388cc1;
+            text-align: left;
+            text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
+          }
+          .title-proceed{
+            margin-top: 20px;
+            font-family: 'GangwonEdu_OTFBoldA';
+            font-size: 20px;
+            color: #2c556f;
+            text-align: left;
+            text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
+          }
+      }
   }
 
 }

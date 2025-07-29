@@ -1,4 +1,3 @@
-import '../assets/style/App.css';
 import { Routes, Route, useNavigate, useParams} from 'react-router-dom'
 import { createContext,useState,useEffect } from 'react';
 import item from '../data/item'

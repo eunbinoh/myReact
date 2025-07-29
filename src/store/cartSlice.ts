@@ -20,9 +20,7 @@ let stock = createSlice({
             ++state[idx].stock
         },
         addCart(state, action){
-            console.log(1,state)
             state.push(action.payload)
-            console.log(1111,state)
         }
 
     }

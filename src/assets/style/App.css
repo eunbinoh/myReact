@@ -10,224 +10,492 @@
   font-weight: normal;
   font-style: normal;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  width: 100%;
-  height: 100vh;
-  background-color: rgb(236, 238, 240);
-  overflow: hidden;
-}
-body .start {
-  opacity: 0;
-}
-body .end {
-  opacity: 1;
-  transition: opacity 0.5s;
-}
-body .main-container {
-  display: flex;
-  background-image: linear-gradient(to right, rgba(2, 2, 2, 0.696), rgba(36, 36, 55, 0.356)), url("../img/x-main/water-main.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  height: 100vh;
-}
-body .item-container {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  display: block;
-}
-body .item-container .filter-box {
-  display: flex;
-  width: 100%;
-  height: 50px;
-  background-color: rgb(242, 238, 238);
-  align-items: end;
-  padding-bottom: 10px;
-}
-body .item-container .filter-box span {
-  font-size: 15px;
-  height: 30px;
-  padding: 5px 5px;
-  margin-left: 10px;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-body .item-container .filter-box input {
-  font-family: "GangwonEdu_OTFBoldA";
-  font-size: 13px;
-  height: 30px;
-  margin-left: 5px;
-  width: 60%;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  background-color: rgba(242, 238, 238, 0.676);
-  padding: 5px 10px 0px 10px;
-}
-body .item-container .filter-box .find-icon {
-  display: flex;
-  margin: 0px 5px 4px 5px !important;
-}
-body .item-container .filter-box button {
-  font-size: 13px;
-  background-color: whitesmoke;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25) !important;
-  height: 30px;
-  padding: auto 5px;
-  margin-right: 10px;
-  border-radius: 5px;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-body .item-container .item-list {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  display: flex;
-  width: 100%;
-  height: 85vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
   overflow-x: hidden;
-  overflow-y: auto !important;
-  margin: 0px auto 10px auto;
-  padding-left: 50px;
 }
-body .item-container .item-list .item-card {
-  text-align: left;
-  margin-top: 7px;
-  cursor: pointer;
-}
-body .item-container .item-list .item-card .card-title {
-  display: block;
-  width: 220px !important;
-  overflow: hidden;
-  margin: 10px 0px 0px 0px;
-}
-body .item-container .item-list .item-card .card-title span {
-  font-family: Hahmlet-Regular;
-  font-size: 20px;
-}
-body .item-container .item-list .item-card .card-row2 {
-  display: inline;
-  font-family: GangwonEdu_OTFBoldA;
-  margin: 5px 0px;
-}
-body .item-container .item-list .item-card .card-row3 {
-  display: flex;
-  width: 220px;
-  height: 30px;
-  margin: 0px 0px 30px 0px;
-  overflow: hidden;
-}
-body .item-container .item-list .item-card .card-row3 span {
-  font-family: GangwonEdu_OTFBoldA;
-}
-body .mine-container {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  display: inline-flex;
-  margin: 0px 5px 0 0px;
+
+.header {
+  position: fixed;
+  top: 0;
   width: 100%;
-  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
 }
-body .mine-container .container-left {
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+.header .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  width: 40%;
-  background-image: linear-gradient(to right, rgba(50, 50, 50, 0.447), rgba(33, 33, 41, 0.454)), url("../img/x-main/water-half.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 95%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
 }
-body .mine-container .container-right {
-  width: 60%;
-  height: 90vh;
-}
-body .mine-container .container-right .filter-box {
+.header .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #667eea;
   display: flex;
-  height: 50px;
-  background-color: rgb(242, 238, 238);
-  align-items: end;
-  padding-bottom: 10px;
+  align-items: center;
+  gap: 0.5rem;
 }
-body .mine-container .container-right .filter-box .title {
-  min-width: -moz-max-content;
-  min-width: max-content;
-  width: 180px;
-  display: inline-flex;
-  font-size: 20px;
+.header .logo .logo-icon {
+  font-size: 2rem;
+}
+.header .nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+.header .nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.header .nav-menu a:hover {
+  color: #667eea;
+}
+.header .cta-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
   font-weight: 600;
-  margin: 0 10px 0 15px;
-}
-body .mine-container .container-right .filter-box input {
-  font-family: "GangwonEdu_OTFBoldA";
-  background-color: whitesmoke;
-  font-size: 13px;
-  height: 30px;
-  margin-left: 5px;
-  width: 45%;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  padding-left: 10px;
-  padding-top: 8px;
-}
-body .mine-container .container-right .filter-box button {
-  background-color: whitesmoke;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  font-size: 13px;
-  height: 30px;
-  padding: auto 5px;
-  margin-left: 10px;
-  border-radius: 5px;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-body .mine-container .container-right .filter-box .find-icon {
-  display: flex;
-  margin: 0px 5px 4px 5px !important;
-}
-body .mine-container .container-right .item-box {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  display: flex;
-  width: 100%;
-  height: 83vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 10px 10px;
-  text-align: center;
-}
-body .mine-container .container-right .item-box .item-card {
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
-body .mine-container .container-right .item-box .item-card .card-title {
-  font-family: GangwonEdu_OTFBoldA;
-  font-size: 18px;
-  margin: 10px 0px 0px 0px;
+.header .cta-button:hover {
+  transform: translateY(-2px);
 }
-body .mine-container .container-right .item-box .item-card span {
-  font-family: GangwonEdu_OTFBoldA;
-  font-size: 14px;
-  margin: 2px 5px;
+
+.main-page .hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
-body .detail-container {
+.main-page .hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/><circle cx="900" cy="800" r="80" fill="url(%23a)"/></svg>') center/cover;
+  opacity: 0.3;
+}
+.main-page .hero .hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.main-page .hero .hero-content h1 {
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+.main-page .hero .hero-content .subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.main-page .hero .hero-content .hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.main-page .hero .btn-primary {
+  background: white;
+  color: #667eea;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.main-page .hero .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+.main-page .hero .btn-secondary {
+  background: transparent;
+  color: white;
+  padding: 1rem 2rem;
+  border: 2px solid white;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.main-page .hero .btn-secondary:hover {
+  background: white;
+  color: #667eea;
+}
+.main-page .hero .hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.main-page .hero .exchange-animation {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-page .hero .exchange-animation .item-circle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+.main-page .hero .exchange-animation .item-circle.item-1 {
+  top: 50px;
+  left: 50px;
+}
+.main-page .hero .exchange-animation .item-circle.item-2 {
+  top: 50px;
+  right: 50px;
+  animation-delay: 1s;
+}
+.main-page .hero .exchange-animation .item-circle.item-3 {
+  bottom: 50px;
+  left: 50px;
+  animation-delay: 2s;
+}
+.main-page .hero .exchange-animation .item-circle.item-4 {
+  bottom: 50px;
+  right: 50px;
+  animation-delay: 0.5s;
+}
+.main-page .hero .exchange-animation .exchange-center {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+  animation: pulse 2s ease-in-out infinite;
+}
+.main-page .features {
+  padding: 6rem 0;
+  background: #f8f9fa;
+}
+.main-page .features .features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.main-page .features .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.main-page .features .section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main-page .features .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+.main-page .features .feature-card {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.main-page .features .feature-card:hover {
+  transform: translateY(-10px);
+}
+.main-page .features .feature-card .feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+}
+.main-page .features .feature-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.main-page .features .feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+.main-page .how-it-works {
+  padding: 6rem 0;
+  background: white;
+}
+.main-page .how-it-works .steps-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.main-page .how-it-works .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.main-page .how-it-works .section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main-page .how-it-works .steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+.main-page .how-it-works .step {
+  text-align: center;
+  position: relative;
+}
+.main-page .how-it-works .step .step-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 1.5rem;
+}
+.main-page .how-it-works .step h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.main-page .how-it-works .step p {
+  color: #666;
+  line-height: 1.6;
+}
+.main-page .cta-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 6rem 0;
+  text-align: center;
+  color: white;
+}
+.main-page .cta-section .cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.main-page .cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.main-page .cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+.main-page .cta-section .btn-primary {
+  background: white;
+  color: #667eea;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.main-page .cta-section .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+@media (max-width: 768px) {
+  .main-page .hero .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+  .main-page .hero .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .main-page .hero .exchange-animation {
+    width: 300px;
+    height: 300px;
+  }
+  .main-page .hero .exchange-animation .item-circle {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+  .main-page .header .nav-menu {
+    display: none;
+  }
+  .main-page .features .features-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .main-page .how-it-works .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .main-page .header .nav-container {
+    padding: 0 1rem;
+  }
+  .main-page .header .logo {
+    font-size: 1.5rem;
+  }
+  .main-page .hero .hero-container {
+    padding: 0 1rem;
+  }
+  .main-page .hero .hero-content h1 {
+    font-size: 2rem;
+  }
+  .main-page .hero .hero-content .subtitle {
+    font-size: 1.1rem;
+  }
+  .main-page .hero .hero-content .hero-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .main-page .features,
+  .main-page .how-it-works,
+  .main-page .cta-section {
+    padding: 4rem 0;
+  }
+  .main-page .features .features-container,
+  .main-page .features .steps-container,
+  .main-page .features .cta-container,
+  .main-page .how-it-works .features-container,
+  .main-page .how-it-works .steps-container,
+  .main-page .how-it-works .cta-container,
+  .main-page .cta-section .features-container,
+  .main-page .cta-section .steps-container,
+  .main-page .cta-section .cta-container {
+    padding: 0 1rem;
+  }
+}
+.detail-container {
   font-family: "GangwonEdu_OTFBoldA";
   margin: 50px 5px 0 0px;
   overflow: hidden;
 }
-body .detail-container .hopes-container {
+.detail-container .hopes-container {
   margin: 15px 10px;
 }
-body .detail-container .hopes-container .hopes {
+.detail-container .hopes-container .hopes {
   width: 50%;
   height: 100%;
   border: 1px solid #2c556f;
   display: block;
   padding: 10px 10px;
 }
-body .detail-container .hopes-container .row {
+.detail-container .hopes-container .row {
   display: block;
 }
-body .detail-container .hopes-container .row .hoper {
+.detail-container .hopes-container .row .hoper {
   font-size: 18px !important;
 }
-body .detail-container .hopes-container .row .wDate {
+.detail-container .hopes-container .row .wDate {
   margin-left: -20px;
   font-size: 13px !important;
 }
-body .post-container {
+
+.post-container {
   width: 100%;
   height: 89vh;
   overflow-x: hidden;
@@ -239,7 +507,7 @@ body .post-container {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-body .post-container .posts {
+.post-container .posts {
   padding-top: 20px;
   margin: 10px auto;
   border: 1px solid rgb(0, 0, 0);
@@ -248,57 +516,57 @@ body .post-container .posts {
   width: 500px;
   background-color: rgba(206, 217, 223, 0.6784313725);
 }
-body .post-container .posts .posts-contents {
+.post-container .posts .posts-contents {
   margin: 5px auto;
   display: block;
   width: 400px;
 }
-body .post-container .posts .posts-contents .posts-contents-header {
+.post-container .posts .posts-contents .posts-contents-header {
   border: 1px solid rgb(35, 35, 35);
   height: 30px;
   width: 400px;
   display: inline-block;
   text-align: left;
 }
-body .post-container .posts .posts-contents .posts-contents-header:first-child {
+.post-container .posts .posts-contents .posts-contents-header:first-child {
   font-size: 13px;
   padding: 5px 5px;
 }
-body .post-container .posts .posts-contents .like-button {
+.post-container .posts .posts-contents .like-button {
   float: right;
   display: flex;
 }
-body .post-container .posts .posts-contents .like-button img {
+.post-container .posts .posts-contents .like-button img {
   margin-top: -18px;
   margin-right: 3px;
 }
-body .post-container .posts .posts-contents .like-button span {
+.post-container .posts .posts-contents .like-button span {
   font-size: 12px;
   margin: -16px 1px auto 0;
 }
-body .post-container .posts .posts-contents .posts-contents-box {
+.post-container .posts .posts-contents .posts-contents-box {
   border: 1px solid rgb(35, 35, 35);
   margin: 5px auto 20px auto;
   width: 400px;
   height: -moz-fit-content;
   height: fit-content;
 }
-body .post-container .posts .posts-contents .posts-contents-box .posts-img {
+.post-container .posts .posts-contents .posts-contents-box .posts-img {
   display: block;
   border: 1px solid rgb(35, 35, 35);
   margin: 20px 4px 5px 4px;
   height: 290px;
   width: 390px;
 }
-body .post-container .posts .posts-contents .posts-contents-box .posts-img img {
+.post-container .posts .posts-contents .posts-contents-box .posts-img img {
   display: flex;
   margin: 0px auto 0px auto;
 }
-body .post-container .posts .posts-contents .posts-contents-box .posts-img .no-Image {
+.post-container .posts .posts-contents .posts-contents-box .posts-img .no-Image {
   margin-top: 50px !important;
   margin-bottom: 45px !important;
 }
-body .post-container .posts .posts-contents .posts-contents-box .posts-img button {
+.post-container .posts .posts-contents .posts-contents-box .posts-img button {
   position: relative;
   float: right;
   height: 20px;
@@ -309,13 +577,13 @@ body .post-container .posts .posts-contents .posts-contents-box .posts-img butto
   background-color: aliceblue;
   font-size: 11px;
 }
-body .post-container .posts .posts-contents .posts-contents-box .posts-context {
+.post-container .posts .posts-contents .posts-contents-box .posts-context {
   font-family: "GangwonEdu_OTFBoldA";
   border: 1px solid rgba(56, 65, 70, 0.8156862745);
   margin: 4px 4px;
   padding: 10px 10px;
 }
-body .post-container .posts .posts-contents .posts-contents-box .posts-context textarea {
+.post-container .posts .posts-contents .posts-contents-box .posts-context textarea {
   border: none;
   width: 370px;
   height: 120px;
@@ -323,52 +591,53 @@ body .post-container .posts .posts-contents .posts-contents-box .posts-context t
   resize: none;
   background-color: rgba(156, 170, 177, 0.368627451);
 }
-body .post-container .posts .posts-contents .posts-contents-box .posts-context textarea:focus {
+.post-container .posts .posts-contents .posts-contents-box .posts-context textarea:focus {
   outline: 0;
 }
-body .about-container {
+
+.about-container {
   display: inline-flex;
   width: 100%;
 }
-body .about-container img {
+.about-container img {
   height: 90vh;
   width: 50%;
 }
-body .about-container .context {
+.about-container .context {
   margin-left: 80px;
   padding-top: 7vh;
 }
-body .about-container .context .main {
+.about-container .context .main {
   display: block;
   margin-bottom: 30px;
 }
-body .about-container .context .main span {
+.about-container .context .main span {
   display: flex;
   font-family: "GangwonEdu_OTFBoldA";
   font-size: 18px;
 }
-body .about-container .context .main span p {
+.about-container .context .main span p {
   color: #327ba9;
   margin-bottom: 0px;
   font-weight: bolder;
   text-shadow: -1px 1px 2px rgba(150, 173, 186, 0.7333333333);
 }
-body .about-container .context .main .title {
+.about-container .context .main .title {
   font-family: "Hahmlet-Regular";
   font-size: 30px;
   margin-bottom: 20px;
   text-shadow: -3px 5px 10px #577181;
 }
-body .about-container .context .sub {
+.about-container .context .sub {
   display: block;
 }
-body .about-container .context .sub span {
+.about-container .context .sub span {
   display: flex;
   text-align: center;
   font-family: "GangwonEdu_OTFBoldA";
   font-size: 16px;
 }
-body .about-container .context .sub .title-point {
+.about-container .context .sub .title-point {
   margin-top: 10px;
   font-family: "GangwonEdu_OTFBoldA";
   font-size: 20px;
@@ -376,91 +645,11 @@ body .about-container .context .sub .title-point {
   text-align: left;
   text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
 }
-body .about-container .context .sub .title-proceed {
+.about-container .context .sub .title-proceed {
   margin-top: 20px;
   font-family: "GangwonEdu_OTFBoldA";
   font-size: 20px;
   color: #2c556f;
   text-align: left;
   text-shadow: -3px 3px 3px rgba(128, 128, 128, 0.774);
-}
-body .projects .container-area {
-  height: 600px;
-  margin: 1% 7%;
-  overflow-y: scroll;
-}
-body .projects .container-area .mobile_frame {
-  width: 80%;
-  border: 1px solid #2c556f;
-  padding: 10px 10% 10px 80px;
-  margin: 1% 10%;
-  display: inline-flex;
-}
-body .projects .container-area .mobile_frame img {
-  height: 80vh;
-  width: 350px;
-  margin-right: 30px;
-}
-body .projects .container-area .mobile_frame .descript {
-  border: 1px solid #2c556f;
-  border-radius: 8px;
-  margin-top: 30px;
-  padding: 40px 30px;
-  display: block;
-  height: 75vh;
-  width: 700px;
-}
-body .projects .container-area .scroll {
-  width: 25px;
-  height: 25px;
-  float: right;
-}
-body .navbar-container {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 25px;
-  z-index: 999;
-  width: 100%;
-  top: 0;
-  position: sticky;
-}
-body .navbar-container .nav-logo {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 30px;
-  position: fixed;
-  left: 0 !important;
-  margin-left: 30px;
-}
-body .navbar-container .nav-menu {
-  display: flex;
-  margin: 0px 0px 0px auto;
-}
-body .component-container {
-  position: relative;
-}
-body .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-@media (prefers-reduced-motion: no-preference) {
-  body .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-body .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }/*# sourceMappingURL=App.css.map */

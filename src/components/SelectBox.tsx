@@ -1,4 +1,4 @@
-import '../assets/style/App.css';
+import '../assets/style/App.scss';
 import styled from 'styled-components';
 import { useState } from 'react';
 import category from '../data/category'
