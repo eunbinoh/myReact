@@ -1,4 +1,4 @@
-import '../assets/style/App.css';
+import '../assets/style/style.css';
 import { Routes, Route, useNavigate, useParams} from 'react-router-dom'
 import { createContext,useState,useEffect, useMemo } from 'react';
 import item from '../data/item'
