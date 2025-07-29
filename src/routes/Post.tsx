@@ -1,52 +1,47 @@
 import { Route, Routes, useParams } from "react-router-dom";
-import styled from "styled-components";
 import { useState, useEffect, useContext, useTransition } from "react";
 import Items from './Items';
 import post from '../data/post'
+import '../assets/style/style.css';
 
 function Post(): JSX.Element {
   const [posts, setPosts] = useState<any[]>(post);
 
   return (
     <div className="post-container">
-    {
-      posts.map((p: any) => {
-        return(
-          <div className="posts">
+      {posts.map((p: any) => {
+        return (
+          <div key={p.id} className="posts">
             <div className="posts-contents">
               <div className="posts-contents-header">
-                <div>@ {p.author} </div>
+                <div className="author-name">@ {p.author}</div>
                 <div className="like-button">
-                    <img width="18px;" height="18px" src="../assets/icon/like-post.svg" /> 
-                    <span>{p.likeCnt}</span>
+                  <img width="18" height="18" src="../assets/icon/like-post.svg" alt="좋아요" /> 
+                  <span>{p.likeCnt}</span>
                 </div>
               </div> 
               <div className="posts-contents-box">
                 <div className="posts-img">
-                    { p.imgFile === '' ?
-                      <img width="100%;" height="50%;" className="no-Image" src="../assets/icon/photo.svg" /> 
-                      : <img width="100%;" height="100%;" src={ p.imgFile } /> 
-                    }
-                  <button> 
+                  {p.imgFile === '' ?
+                    <img width="100%" height="50%" className="no-Image" src="../assets/icon/photo.svg" alt="이미지 없음" /> 
+                    : <img width="100%" height="100%" src={p.imgFile} alt="포스트 이미지" /> 
+                  }
+                  <button className="item-button"> 
                     #Item
-                    <Routes >
-                      <Route path="/items" element={ <Items /> } />
+                    <Routes>
+                      <Route path="/items" element={<Items />} />
                     </Routes>
                   </button> 
                 </div>
                 <div className="posts-context"> 
-                  <textarea readOnly>
-                    {p.context}
-                  </textarea>
-                   <br/>
+                  <textarea readOnly value={p.context} />
+                  <br/>
                 </div> 
               </div>
             </div>
           </div>
-        )
-      })
-    }
-    
+        );
+      })}
     </div> 
   )
 }

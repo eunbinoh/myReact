@@ -1,7 +1,8 @@
-import { Routes, Route, useNavigate, useParams} from 'react-router-dom'
-import { createContext,useState,useEffect } from 'react';
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
+import { createContext, useState, useEffect } from 'react';
 import item from '../data/item'
 import axios from 'axios';
+import '../assets/style/style.css';
 
 export let Context1 = createContext<any>(undefined)
 
@@ -14,21 +15,26 @@ function Mine(): JSX.Element {
       <div className="container-right">
         <div className="filter-box">
           <div className="title">MY PAGE</div>
-          <input placeholder=" 아이템명 검색"></input>
-          <div className="find-icon"><img width="18px;" height="20px" src="../assets/icon/search.svg" /></div>
-          <button>ALL</button>
-          <button>HIDDEN</button>
-          <button>LIKE</button>
-          <button>HISTORY</button>
+          <div className="search-container">
+            <input placeholder="아이템명 검색" />
+            <div className="find-icon">
+              <img width="18px" height="20px" src="../assets/icon/search.svg" />
+            </div>
+          </div>
+          <div className="filter-buttons">
+            <button className="filter-btn active">ALL</button>
+            <button className="filter-btn">HIDDEN</button>
+            <button className="filter-btn">LIKE</button>
+            <button className="filter-btn">HISTORY</button>
+          </div>
         </div>
         <div className="item-box">
           <div className="row">
-            { items.map((item, i) => {
-                return ( 
-                  <Card item={item} key={i} i={i+1} ></Card> 
-                )
-              })
-            }
+            {items.map((item, i) => {
+              return (
+                <Card item={item} key={i} i={i + 1}></Card>
+              )
+            })}
           </div>
         </div>
       </div>
@@ -36,24 +42,23 @@ function Mine(): JSX.Element {
   )
 }
 
-/** Card Component */
 function Card(props: any): JSX.Element {
   let navigate = useNavigate();
   return (
-      <>
-        <div className="item-card col-md-4" 
-             onClick={()=>{ navigate(`/detail/${props.item.itemId}`,{state: { item : props.item }} )}} >
-          <div>
-            <img src={props.item.itemImg} alt="" width="200px;" height="200px;" />
-          </div>
-          <div>
-            <span className='card-title'>{props.item.itemNm}</span>
-            <span>🤍{props.item.liker.length} </span>
-            <span>❤ {props.item.buyHoper.length} </span>
-          </div>
+    <div className="item-card"
+      onClick={() => { navigate(`/detail/${props.item.itemId}`, { state: { item: props.item } }) }}>
+      <div className="card-image">
+        <img src={props.item.itemImg} alt="" />
+      </div>
+      <div className="card-content">
+        <span className='card-title'>{props.item.itemNm}</span>
+        <div className="card-stats">
+          <span className="like-count">🤍{props.item.liker.length}</span>
+          <span className="wish-count">❤ {props.item.buyHoper.length}</span>
         </div>
-      </>
-  ) 
+      </div>
+    </div>
+  )
 }
 
 export default Mine;

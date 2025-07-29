@@ -50,7 +50,6 @@ const Home: React.FC = () => {
   const exchangeItems: string[] = ['📱', '📚', '🎮', '👜'];
 
   const handleButtonClick = (action: string) => {
-    console.log(`${action} 버튼 클릭됨`);
   };
 
   return (
