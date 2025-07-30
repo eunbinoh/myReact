@@ -68,13 +68,13 @@ const Home: React.FC = () => {
             <div className="hero-buttons">
               <button 
                 className="btn-primary"
-                onClick={() => navigate('/items')}
+                onClick={() => navigate('/mine')}
               >
                 아이템 등록하기
               </button>
               <button 
                 className="btn-secondary"
-                onClick={() => navigate('/mine')}
+                onClick={() => navigate('/items')}
               >
                 아이템 둘러보기
               </button>

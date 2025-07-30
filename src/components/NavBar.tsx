@@ -33,7 +33,7 @@ function NavBar() {
         <div className="logo" onClick={() => navigate('/')}
           style={{ cursor: 'pointer' }}>
           <span className="logo-icon">💧</span>
-          Water Water ex
+          <span className="logo-text">Water Water ex</span>
         </div>
         <nav>
           <ul className="nav-menu">
