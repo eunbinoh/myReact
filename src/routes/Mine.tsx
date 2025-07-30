@@ -2,38 +2,40 @@ import { Routes, Route, useNavigate, useParams } from 'react-router-dom'
 import { createContext, useState, useEffect } from 'react';
 import item from '../data/item'
 import axios from 'axios';
-import '../assets/style/style.css';
+import '../assets/style/style.scss';
 
 export let Context1 = createContext<any>(undefined)
 
 function Mine(): JSX.Element {
   let [items, setItems] = useState<any[]>(item);
+  let [tab, setTab] = useState<string>('item');
+
+  const handleTab = (tabType: string) => {
+    setTab(tabType);
+  };
 
   return (
     <div className="mine-container">
       <div className="container-left"></div>
       <div className="container-right">
         <div className="filter-box">
-          <div className="title">MY PAGE</div>
-          <div className="search-container">
-            <input placeholder="아이템명 검색" />
-            <div className="find-icon">
-              <img width="18px" height="20px" src="../assets/icon/search.svg" />
-            </div>
-          </div>
           <div className="filter-buttons">
-            <button className="filter-btn active">ALL</button>
-            <button className="filter-btn">HIDDEN</button>
-            <button className="filter-btn">LIKE</button>
-            <button className="filter-btn">HISTORY</button>
+            <button className={tab === 'item' ? 'filter-btn active' : 'filter-btn'} onClick={() => handleTab('item')}>MY ITEM</button>
+            <button className={tab === 'post' ? 'filter-btn active' : 'filter-btn'} onClick={() => handleTab('post')}>MY POST</button>
           </div>
         </div>
         <div className="item-box">
           <div className="row">
             {items.map((item, i) => {
-              return (
-                <Card item={item} key={i} i={i + 1}></Card>
-              )
+              if (i === 0) {
+                return (
+                  <div className="item-card add-button" onClick={() => {}}>+</div>
+                );
+              } else {
+                return (
+                  <Card item={item} key={i} i={i + 1}></Card>
+                );
+              }
             })}
           </div>
         </div>

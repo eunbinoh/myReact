@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 interface Feature {
   icon: string;
   title: string;
@@ -11,21 +13,22 @@ interface Step {
 }
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
   const features: Feature[] = [
     {
       icon: '🔒',
-      title: '안전한 거래',
-      description: '검증된 사용자와 안전한 거래 시스템으로 믿을 수 있는 교환을 보장합니다.',
+      title: 'Safe Exchange',
+      description: '검증된 사용자와의 안전한 거래를 통해 믿을 수 있는 교환을 보장받는 시스템',
     },
     {
       icon: '🌱',
-      title: '지속가능한 소비',
-      description: '버려지는 물건을 줄이고 자원을 재활용하여 환경을 보호합니다.',
+      title: 'Save Earth',
+      description: '일회성으로 버려지는 물건을 줄이고 무분별한 자원 소비를 되살려 환경을 보호하는 운동',
     },
     {
       icon: '💰',
-      title: '경제적 혜택',
-      description: '돈을 쓰지 않고도 필요한 물건을 얻을 수 있는 새로운 경제 모델입니다.',
+      title: 'Save Money',
+      description: '나에게 필요없는 물건으로 필요한 다른 물건을 얻을 수 있는 재생산적 화폐 시장 운동',
     },
   ];
 
@@ -33,24 +36,21 @@ const Home: React.FC = () => {
     {
       number: 1,
       title: '아이템 등록',
-      description: '교환하고 싶은 물건을 사진과 함께 등록하고 원하는 물건을 명시하세요.',
+      description: '내가 가진 물건의 사진과 설명을 등록하고 맞교환 희망하는 물건을 제시하세요.',
     },
     {
       number: 2,
-      title: '매칭 찾기',
-      description: 'AI가 최적의 교환 파트너를 찾아드리거나 직접 검색해서 찾을 수 있습니다.',
+      title: '트레이드',
+      description: '교환을 희망하는 대상의 물건을 볼 수 있고, 호스트에게 직접 교환을 제안할 수 있어요.',
     },
     {
       number: 3,
-      title: '안전한 교환',
-      description: '안전한 만남 장소에서 교환하거나 배송 서비스를 이용해 교환을 완료하세요.',
+      title: '포스트',
+      description: '내 아이템의 특별한 사연, 스토리가 있다면 공유하고 어필해보세요.',
     },
   ];
 
   const exchangeItems: string[] = ['📱', '📚', '🎮', '👜'];
-
-  const handleButtonClick = (action: string) => {
-  };
 
   return (
     <div className="main-page">
@@ -59,24 +59,24 @@ const Home: React.FC = () => {
           <div className="hero-content">
             <h1>
               물물교환<br />
-              새로운 경험
+              Item / Item Exchange
             </h1>
             <p className="subtitle">
-              필요 없는 물건을 가치 있는 물건으로 바꿔보세요.<br />
-              지속 가능한 소비의 새로운 패러다임을 경험하세요.
+              필요 없는 물건을 원하는 물건으로 바꿔보세요.<br />
+              새로운 구매와 소비의 패러다임을 경험하세요.
             </p>
             <div className="hero-buttons">
               <button 
                 className="btn-primary"
-                onClick={() => handleButtonClick('교환 시작하기')}
+                onClick={() => navigate('/items')}
               >
-                교환 시작하기
+                아이템 등록하기
               </button>
               <button 
                 className="btn-secondary"
-                onClick={() => handleButtonClick('둘러보기')}
+                onClick={() => navigate('/mine')}
               >
-                둘러보기
+                아이템 둘러보기
               </button>
             </div>
           </div>
@@ -100,9 +100,9 @@ const Home: React.FC = () => {
       {/* Features Section */}
       <section id="features" className="features">
         <div className="features-container">
-          <h2 className="section-title">왜 Water Water Exchange일까요?</h2>
+          <h2 className="section-title">Water Water Ex?</h2>
           <p className="section-subtitle">
-            안전하고 편리한 물물교환 플랫폼으로 새로운 가치를 발견하세요
+            물물교환 플랫폼이자 가치 재생산 운동이란 뜻을 담았습니다.
           </p>
           <div className="features-grid">
             {features.map((feature, index) => (
@@ -119,8 +119,8 @@ const Home: React.FC = () => {
       {/* How it works */}
       <section id="how-it-works" className="how-it-works">
         <div className="steps-container">
-          <h2 className="section-title">어떻게 작동하나요?</h2>
-          <p className="section-subtitle">간단한 3단계로 물물교환을 시작하세요</p>
+          <h2 className="section-title">어떻게 이용하면 되나요?</h2>
+          <p className="section-subtitle">3가지 플로우를 제공합니다.</p>
           <div className="steps-grid">
             {steps.map((step, index) => (
               <div key={index} className="step">
@@ -137,10 +137,10 @@ const Home: React.FC = () => {
       <section className="cta-section">
         <div className="cta-container">
           <h2>지금 바로 시작하세요</h2>
-          <p>집에 잠들어 있는 물건들을 새로운 가치로 바꿔보세요</p>
+          <p>집에 잠들어 있는 물건들을 꼭 필요한 가치로 바꿔보세요.</p>
           <button 
             className="btn-primary"
-            onClick={() => handleButtonClick('무료로 시작하기')}
+            onClick={() => navigate('/items')}
           >
             시작하기
           </button>

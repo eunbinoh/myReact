@@ -4,9 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const navItems: NavItem[] = [
   { id: 'home', label: 'HOME', href: '/' },
-  { id: 'items', label: 'ITEMS', href: '/mine' },
   { id: 'exchange', label: 'TRADE', href: '/items' },
   { id: 'community', label: 'POSTS', href: '/post' },
+  { id: 'items', label: 'MINE', href: '/mine' },
 ];
 
 type NavItem = {
@@ -26,11 +26,6 @@ function NavBar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleButtonClick = (label: string) => {
-    // 버튼 클릭 시 동작 (예시: alert)
-    alert(`${label} 버튼 클릭!`);
-  };
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
@@ -56,9 +51,9 @@ function NavBar() {
         </nav>
         <button 
           className="cta-button"
-          onClick={() => handleButtonClick('시작하기')}
+          onClick={() => navigate('/items')}
         >
-          시작하기
+          로그인
         </button>
       </div>
     </header>

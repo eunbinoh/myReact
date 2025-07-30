@@ -1,4 +1,4 @@
-import '../assets/style/style.scss';
+import '../assets/style/style.css';
 import { useNavigate} from 'react-router-dom'
 import { useState } from 'react';
 import item from '../data/item'

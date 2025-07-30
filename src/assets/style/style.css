@@ -275,9 +275,16 @@
   width: 100%;
   height: 230px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: var(--transition);
   background-color: #f8f9fa;
+}
+
+.item-card.add-button {
+  color: var(--accent-color);
+  font-size: 100px;
+  text-align: center;
+  line-height: 230px;
 }
 
 .item-card .card-title {
@@ -536,7 +543,7 @@
 
 .posts-context textarea {
   width: 100%;
-  min-height: 120px;
+  min-height: 200px;
   padding: 1rem;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
@@ -583,12 +590,13 @@
   }
 }
 
-mine-container {
-  min-height: 100vh;
-  background: var(--gradient-primary);
-  padding: 2rem 1rem;
-  display: flex;
-  gap: 2rem;
+.mine-container {
+  max-width: 1440px;
+  height: 100vh;
+  padding-bottom: 100px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow-y: scroll;
 }
 
 .container-left {
@@ -606,12 +614,13 @@ mine-container {
 }
 
 .filter-box {
+  margin-top: 100px;
   background: var(--gradient-card);
   padding: 2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-card);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1.5rem;
 }
 
