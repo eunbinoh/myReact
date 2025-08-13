@@ -4,7 +4,7 @@ import { useState } from 'react';
 import item from '../data/item'
 import category from '../data/category'
 import Select from 'react-select'
-import ItemTradeModal from '../components/ItemTradeModal';
+import TradeItemModal from '../components/ItemTradeModal';
 interface ItemProps {
   item: {
     itemId: string;
@@ -175,7 +175,7 @@ function Items(): JSX.Element {
         </div>
       </div>
       
-      <ItemTradeModal isOpen={(isItemTradeModalOpen)} onClose={() => setIsItemTradeModalOpen(false)} tradeItem={targetItem} />
+      <TradeItemModal isOpen={(isItemTradeModalOpen)} onClose={() => setIsItemTradeModalOpen(false)} tradeItem={targetItem} />
 
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../assets/style/itemModal.scss';
+import hopes from '../data/hopes';
 
 interface ItemRegistProps {
   isOpen: boolean;
@@ -7,7 +8,7 @@ interface ItemRegistProps {
   tradeItem?: any;
 }
 
-const TradeItem: React.FC<ItemRegistProps> = ({ isOpen, onClose, tradeItem }) => {
+const TradeItemModal: React.FC<ItemRegistProps> = ({ isOpen, onClose, tradeItem }) => {
   const initialForm = {
     itemNm: tradeItem?.itemNm || '',
     itemDesc: tradeItem?.itemDesc || '',
@@ -39,6 +40,16 @@ const TradeItem: React.FC<ItemRegistProps> = ({ isOpen, onClose, tradeItem }) =>
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // 댓글모달 연결
+  };
+
+  const handleAccept = (hopeNo: string) => {
+    console.log(hopeNo);
+  };
+  const handleReject = (hopeNo: string) => {
+    console.log(hopeNo);
+  };
+  const handleReply = (hopeNo: string) => {
+    console.log(hopeNo);
   };
 
   const handleClose = () => {
@@ -96,10 +107,70 @@ const TradeItem: React.FC<ItemRegistProps> = ({ isOpen, onClose, tradeItem }) =>
             )}
           </div>
 
-          <div className="form-group">
-            <label htmlFor="itemImg">거래 제시 리스트</label>
-              <div className="trade-list">
-              </div>
+          <div className="trade-list-group">
+            <label className="section-title">거래 제시 리스트 ({hopes.length})</label>
+            <div className="trade-list-container">
+              {hopes.length === 0 ? (
+                <div className="empty-state">
+                  <span>아직 거래 제안이 없습니다.</span>
+                </div>
+              ) : (
+                <div className="trade-list">
+                  {hopes.map((hope, i) => (
+                    <div key={hope.hopeNo} className="trade-comment">
+                      <div className="comment-header">
+                        <div className="user-info">
+                          <div className="user-avatar">
+                            <span>{hope.hoper.charAt(0).toUpperCase()}</span>
+                          </div>
+                          <div className="user-details">
+                            <span className="username">{hope.hoper}</span>
+                            <span className="comment-date">{hope.writeDate.toLocaleDateString()}</span>
+                          </div>
+                        </div>
+                        <div className={`status-badge status-${hope.status}`}>
+                          <span>
+                            {hope.status === '10' ? '제안' : 
+                            hope.status === '20' ? '수락' : 
+                            '거절된 제안'}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="comment-body">
+                        <p className="trade-proposal">{hope.context}</p>
+                      </div>
+                      
+                      {hope.status === '10' && (
+                        <div className="comment-actions">
+                          <button className="action-btn accept-btn" disabled onClick={() => handleAccept(hope.hopeNo)}>
+                            수락
+                          </button>
+                          <button className="action-btn reject-btn" disabled onClick={() => handleReject(hope.hopeNo)}>
+                            거절
+                          </button>
+                          <button className="action-btn reply-btn" disabled onClick={() => handleReply(hope.hopeNo)}>
+                            답글
+                          </button>
+                        </div>
+                      )}
+                      
+                      {hope.status === '20' && (
+                        <div className="accepted-notice">
+                          <span>✓ 이 제안을 수락했습니다</span>
+                        </div>
+                      )}
+                      
+                      {hope.status === '30' && (
+                        <div className="rejected-notice">
+                          <span>✗ 이 제안을 거절했습니다</span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="modal-actions">
@@ -116,4 +187,4 @@ const TradeItem: React.FC<ItemRegistProps> = ({ isOpen, onClose, tradeItem }) =>
   );
 };
 
-export default TradeItem;
+export default TradeItemModal;
