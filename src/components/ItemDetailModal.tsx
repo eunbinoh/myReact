@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../assets/style/itemModal.scss';
 
 interface ItemRegistProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (itemData: any) => void;
+  targetItem?: any;
 }
 
-const Item_Regist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) => {
-  const [formData, setFormData] = useState({
-    itemNm: '',
-    itemDesc: '',
-    itemPrice: '',
-    itemCategory: '',
-    itemImg: ''
-  });
+const ItemDetail: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit, targetItem }) => {
+  const initialForm = {
+    itemNm: targetItem?.itemNm || '',
+    itemDesc: targetItem?.itemDesc || '',
+    itemCategory: targetItem?.owner || '',
+    itemImg: targetItem?.itemImg || ''
+  };
+
+  const [formData, setFormData] = useState(initialForm);
+
+  useEffect(() => {
+    setFormData({
+      itemNm: targetItem?.itemNm || '',
+      itemDesc: targetItem?.itemDesc || '',
+      itemCategory: targetItem?.owner || '',
+      itemImg: targetItem?.itemImg || ''
+    });
+  }, [targetItem, isOpen]);
 
   const [imagePreview, setImagePreview] = useState<string>('');
 
@@ -45,7 +56,7 @@ const Item_Regist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.itemNm || !formData.itemPrice || !formData.itemCategory) {
+    if (!formData.itemNm || !formData.itemCategory) {
       alert('필수 정보를 모두 입력해주세요.');
       return;
     }
@@ -54,7 +65,6 @@ const Item_Regist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =
       itemId: Date.now(),
       itemNm: formData.itemNm,
       itemDesc: formData.itemDesc,
-      itemPrice: parseInt(formData.itemPrice),
       itemCategory: formData.itemCategory,
       itemImg: formData.itemImg || '/default-image.jpg',
       liker: [],
@@ -67,7 +77,6 @@ const Item_Regist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =
     setFormData({
       itemNm: '',
       itemDesc: '',
-      itemPrice: '',
       itemCategory: '',
       itemImg: ''
     });
@@ -79,7 +88,6 @@ const Item_Regist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =
     setFormData({
       itemNm: '',
       itemDesc: '',
-      itemPrice: '',
       itemCategory: '',
       itemImg: ''
     });
@@ -93,7 +101,7 @@ const Item_Regist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =
     <div className="modal-overlay" onClick={handleClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>거래아이템 수정</h2>
+          <h2>내 아이템 수정하기</h2>
           <button className="close-button" onClick={handleClose}>
             ×
           </button>
@@ -134,20 +142,6 @@ const Item_Regist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =
           </div>
 
           <div className="form-group">
-            <label htmlFor="itemPrice">가격 *</label>
-            <input
-              type="number"
-              id="itemPrice"
-              name="itemPrice"
-              value={formData.itemPrice}
-              onChange={handleInputChange}
-              placeholder="가격을 입력하세요"
-              min="0"
-              required
-            />
-          </div>
-
-          <div className="form-group">
             <label htmlFor="itemDesc">설명</label>
             <textarea
               id="itemDesc"
@@ -179,7 +173,7 @@ const Item_Regist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =
               취소
             </button>
             <button type="submit" className="submit-button" onClick={handleSubmit}>
-              등록하기
+              수정하기
             </button>
           </div>
         </form>
@@ -188,4 +182,4 @@ const Item_Regist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =
   );
 };
 
-export default Item_Regist;
+export default ItemDetail;

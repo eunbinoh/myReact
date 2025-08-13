@@ -4,6 +4,7 @@ import { useState } from 'react';
 import item from '../data/item'
 import category from '../data/category'
 import Select from 'react-select'
+import ItemTradeModal from '../components/ItemTradeModal';
 interface ItemProps {
   item: {
     itemId: string;
@@ -15,6 +16,7 @@ interface ItemProps {
     itemDesc: string;
   };
   i: number;
+  onClick?: (item: any) => void;
 }
 
 function Items(): JSX.Element {
@@ -23,6 +25,13 @@ function Items(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [sortBy, setSortBy] = useState<string>('NEW');
   const [loading, setLoading] = useState<boolean>(false);
+  const [isItemTradeModalOpen, setIsItemTradeModalOpen] = useState<boolean>(false);
+  const [targetItem, setTargetItem] = useState<any>(null);
+
+  const openItemTradeModalToggle = (isOpen?: boolean, item?: any) => {
+      isOpen ? setIsItemTradeModalOpen(true) : setIsItemTradeModalOpen(false);
+    if(item) setTargetItem(item);
+  };
 
   const selectStyles = {
     control: (provided: any, state: any) => ({
@@ -152,10 +161,9 @@ function Items(): JSX.Element {
             ))
           ) : items.length > 0 ? (
             items.map((x, i) => (
-              <Card item={x} key={x.itemId || i} i={i + 1} />
+              <Card item={x} key={x.itemId || i} i={i + 1} onClick={() => openItemTradeModalToggle(true, x)}/>
             ))
           ) : (
-            // 빈 상태
             <div className="empty-state">
               <div className="empty-icon">📦</div>
               <div className="empty-title">아이템이 없습니다</div>
@@ -166,13 +174,14 @@ function Items(): JSX.Element {
           )}
         </div>
       </div>
+      
+      <ItemTradeModal isOpen={(isItemTradeModalOpen)} onClose={() => setIsItemTradeModalOpen(false)} tradeItem={targetItem} />
+
     </div>
   );
 }
 
-function Card({ item, i }: ItemProps): JSX.Element {
-  const navigate = useNavigate();
-  
+function Card({ item, i, onClick }: ItemProps): JSX.Element {
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = '/assets/images/placeholder.jpg'; 
   };
@@ -188,11 +197,9 @@ function Card({ item, i }: ItemProps): JSX.Element {
   return (
     <div 
       className="item-card" 
-      onClick={() => {
-        navigate(`/detail/${item.itemId}`, { state: { item: item } });
-      }}
       role="button"
       tabIndex={0}
+      onClick={onClick}
     >
       <img 
         src={item.itemImg} 

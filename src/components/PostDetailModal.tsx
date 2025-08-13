@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../assets/style/itemModal.scss';
 
 interface ItemRegistProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (itemData: any) => void;
+  onSubmit: (postData: any) => void;
+  targetPost?: any;
 }
 
-const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) => {
-  const [formData, setFormData] = useState({
-    itemNm: '',
-    itemDesc: '',
-    itemPrice: '',
-    itemCategory: '',
-    itemImg: ''
-  });
+const PostDetail: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit, targetPost }) => {
+  const initialForm = {
+    postId: targetPost?.postId || '',
+    context: targetPost?.context || '',
+    author: targetPost?.author || '',
+    imgFile: targetPost?.imgFile || ''
+  };
+
+  const [formData, setFormData] = useState(initialForm);
+
+  useEffect(() => {
+    setFormData({
+      postId: targetPost?.postId || '',
+      context: targetPost?.context || '',
+      author: targetPost?.author || '',
+      imgFile: targetPost?.imgFile || ''
+    });
+  }, [targetPost, isOpen]);
 
   const [imagePreview, setImagePreview] = useState<string>('');
 
@@ -35,7 +46,7 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
         setImagePreview(result);
         setFormData(prev => ({
           ...prev,
-          itemImg: result
+          imgFile: result
         }));
       };
       reader.readAsDataURL(file);
@@ -45,18 +56,17 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.itemNm || !formData.itemPrice || !formData.itemCategory) {
+    if (!formData.postId || !formData.author) {
       alert('필수 정보를 모두 입력해주세요.');
       return;
     }
 
     const newItem = {
       itemId: Date.now(),
-      itemNm: formData.itemNm,
-      itemDesc: formData.itemDesc,
-      itemPrice: parseInt(formData.itemPrice),
-      itemCategory: formData.itemCategory,
-      itemImg: formData.itemImg || '/default-image.jpg',
+      postId: formData.postId,
+      context: formData.context,
+      author: formData.author,
+      imgFile: formData.imgFile || '/default-image.jpg',
       liker: [],
       buyHoper: [],
       createdAt: new Date().toISOString()
@@ -65,11 +75,10 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
     onSubmit(newItem);
     
     setFormData({
-      itemNm: '',
-      itemDesc: '',
-      itemPrice: '',
-      itemCategory: '',
-      itemImg: ''
+      postId: '',
+      context: '',
+      author: '',
+      imgFile: ''
     });
     setImagePreview('');
     onClose();
@@ -77,11 +86,10 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
 
   const handleClose = () => {
     setFormData({
-      itemNm: '',
-      itemDesc: '',
-      itemPrice: '',
-      itemCategory: '',
-      itemImg: ''
+      postId: '',
+      context: '',
+      author: '',
+      imgFile: ''
     });
     setImagePreview('');
     onClose();
@@ -93,7 +101,7 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
     <div className="modal-overlay" onClick={handleClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>새 아이템 등록하기</h2>
+          <h2>글 수정하기</h2>
           <button className="close-button" onClick={handleClose}>
             ×
           </button>
@@ -101,55 +109,35 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
         
         <form className="modal-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="itemNm">아이템명 *</label>
+            <label htmlFor="postId">타이틀 *</label>
             <input
               type="text"
-              id="itemNm"
-              name="itemNm"
-              value={formData.itemNm}
+              id="postId"
+              name="postId"
+              value={formData.postId}
               onChange={handleInputChange}
-              placeholder="아이템명을 입력하세요"
+              placeholder="타이틀을 입력하세요"
               required
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="itemCategory">카테고리 *</label>
-            <select
-              id="itemCategory"
-              name="itemCategory"
-              value={formData.itemCategory}
-              onChange={handleInputChange}
-              required
-            >
-              <option value="">카테고리 선택</option>
-              <option value="electronics">전자제품</option>
-              <option value="fashion">패션</option>
-              <option value="home">생활용품</option>
-              <option value="books">도서</option>
-              <option value="sports">스포츠</option>
-              <option value="beauty">뷰티</option>
-              <option value="others">기타</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="itemDesc">설명</label>
+            <label htmlFor="context">내용</label>
             <textarea
-              id="itemDesc"
-              name="itemDesc"
-              value={formData.itemDesc}
+              id="context"
+              name="context"
+              value={formData.context}
               onChange={handleInputChange}
-              placeholder="아이템에 대한 설명을 입력하세요"
+              placeholder="내용을 입력하세요"
               rows={4}
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="itemImg">이미지</label>
+            <label htmlFor="imgFile">이미지</label>
             <input
               type="file"
-              id="itemImg"
+              id="imgFile"
               accept="image/*"
               onChange={handleImageChange}
             />
@@ -165,7 +153,7 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
               취소
             </button>
             <button type="submit" className="submit-button" onClick={handleSubmit}>
-              등록하기
+              수정하기
             </button>
           </div>
         </form>
@@ -174,4 +162,4 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
   );
 };
 
-export default ItemRegist;
+export default PostDetail;

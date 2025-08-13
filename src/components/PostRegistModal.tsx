@@ -7,7 +7,7 @@ interface ItemRegistProps {
   onSubmit: (itemData: any) => void;
 }
 
-const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) => {
+const PostRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
     itemNm: '',
     itemDesc: '',
@@ -93,7 +93,7 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
     <div className="modal-overlay" onClick={handleClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>새 아이템 등록하기</h2>
+          <h2>새 글 등록하기</h2>
           <button className="close-button" onClick={handleClose}>
             ×
           </button>
@@ -101,46 +101,26 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
         
         <form className="modal-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="itemNm">아이템명 *</label>
+            <label htmlFor="itemNm">타이틀 *</label>
             <input
               type="text"
               id="itemNm"
               name="itemNm"
               value={formData.itemNm}
               onChange={handleInputChange}
-              placeholder="아이템명을 입력하세요"
+              placeholder="타이틀을 입력하세요"
               required
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="itemCategory">카테고리 *</label>
-            <select
-              id="itemCategory"
-              name="itemCategory"
-              value={formData.itemCategory}
-              onChange={handleInputChange}
-              required
-            >
-              <option value="">카테고리 선택</option>
-              <option value="electronics">전자제품</option>
-              <option value="fashion">패션</option>
-              <option value="home">생활용품</option>
-              <option value="books">도서</option>
-              <option value="sports">스포츠</option>
-              <option value="beauty">뷰티</option>
-              <option value="others">기타</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="itemDesc">설명</label>
+            <label htmlFor="itemDesc">내용</label>
             <textarea
               id="itemDesc"
               name="itemDesc"
               value={formData.itemDesc}
               onChange={handleInputChange}
-              placeholder="아이템에 대한 설명을 입력하세요"
+              placeholder="내용을 입력하세요"
               rows={4}
             />
           </div>
@@ -174,4 +154,4 @@ const ItemRegist: React.FC<ItemRegistProps> = ({ isOpen, onClose, onSubmit }) =>
   );
 };
 
-export default ItemRegist;
+export default PostRegist;
