@@ -285,6 +285,12 @@
   font-size: 100px;
   text-align: center;
   line-height: 230px;
+  @media (min-width: 541px) {
+      padding: 20px 0;
+  }
+  @media (max-width: 540px) {
+      padding: 0 0 10px 0;
+  }
 }
 
 .item-card .card-title {

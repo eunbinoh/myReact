@@ -37,7 +37,7 @@ function SelectBox(props:any) {
   
   const [value, setValue] = useState('- 전체 -')
   const [isShowOpt, setShowOpt] = useState(false)
-  let [cates, setCates ] = useState(category)
+  const [cates, setCates ] = useState(category)
   // setCates({tpCode:'01', tpName:'의류/패션잡화'})
 
   const handleChange = (e:any) => {

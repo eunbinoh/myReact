@@ -35,7 +35,7 @@ let post = [
     {
       postId: '00004',
       author : 'userKim',          
-      context : '',      
+      context : '무지개색깔 양말 할인하길래 귀여워서 20켤레 구매했는데 너무 많네요. \n 흰색이나 검정색 양말 교환하실 분 찾습니다. \n 퀄리티 좋은 양말이면 숫자 더 많이 넣어 교환 해드려요. \n 댓글주세요!',      
       imgFile : '',       
       itemId : '',     
       likeCnt: 3, 
@@ -46,7 +46,7 @@ let post = [
     {
       postId: '00005',
       author : 'master',          
-      context : '',      
+      context : '무지개색깔 양말 할인하길래 귀여워서 20켤레 구매했는데 너무 많네요. \n 흰색이나 검정색 양말 교환하실 분 찾습니다. \n 퀄리티 좋은 양말이면 숫자 더 많이 넣어 교환 해드려요. \n 댓글주세요!',      
       imgFile : '',       
       itemId : '',     
       likeCnt: 2, 
